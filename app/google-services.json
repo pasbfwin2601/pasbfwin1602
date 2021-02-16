@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "664362112564",
+    "project_id": "creciendojuntos-f52dc",
+    "storage_bucket": "creciendojuntos-f52dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664362112564:android:02caba97b32a4bae635c61",
+        "android_client_info": {
+          "package_name": "com.bit.creciendojuntos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664362112564-h8of94kp7a2srv0qejdrmfv9onm3ecdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bit.creciendojuntos",
+            "certificate_hash": "27b31f51dadcd4bacea509a4f505b7771b8aa75b"
+          }
+        },
+        {
+          "client_id": "664362112564-8j7q0m6lmqlvi1pfo7obpg9vnq488k37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI-dSdF-zB3aYnNladmyUgoTAPff6gRmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664362112564-8j7q0m6lmqlvi1pfo7obpg9vnq488k37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
