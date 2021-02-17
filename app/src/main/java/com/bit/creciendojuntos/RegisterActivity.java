@@ -29,7 +29,6 @@ public class RegisterActivity extends AppCompatActivity {
     Toolbar mToolbar;
     SharedPreferences mPref;
 
-
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
 
@@ -44,9 +43,9 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Registrar");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mTextInputNombre = findViewById(R.id.textInputNombre);
-        mTextInputEmail = findViewById(R.id.textInputEmail);
-        mTextInputPassword = findViewById(R.id.textInputPassword);
+        mTextInputNombre = findViewById(R.id.textInputNombreReg);
+        mTextInputEmail = findViewById(R.id.textInputCorreoReg);
+        mTextInputPassword = findViewById(R.id.textInputPasswordReg);
         mButtonRegister = (Button) findViewById(R.id.btnRegister);
 
         mAuth = FirebaseAuth.getInstance();
@@ -55,7 +54,6 @@ public class RegisterActivity extends AppCompatActivity {
         mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(RegisterActivity.this, "pepito", Toast.LENGTH_SHORT).show();
                register();
             }
         });
@@ -65,22 +63,17 @@ public class RegisterActivity extends AppCompatActivity {
     void register() {
 
         final String nombre = mTextInputNombre.getText().toString();
-        Log.d("nombre",nombre);
         final String email = mTextInputEmail.getText().toString();
-        Log.d("prueba2","prueba2");
         final String password = mTextInputPassword.getText().toString();
-        Log.d("prueba3","prueba3");
 
-        if (!email.isEmpty() && !password.isEmpty()) {
-       //if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+        if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
             if (password.length() >= 6) {
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            String id = mAuth.getCurrentUser().getUid();
-                            Toast.makeText(RegisterActivity.this, "pepito", Toast.LENGTH_SHORT).show();
-                            //saveUser(nombre,email);
+                            //String id = mAuth.getCurrentUser().getUid();
+                            saveUser(nombre,email);
                         } else {
                             Toast.makeText(RegisterActivity.this, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show();
                         }
@@ -101,7 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
         user.setNombre(nombre);
 
         if (selectedUser.equals("medico")){
-            mDatabase.child("Users").child("Medico").push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+            mDatabase.child("Users").child("medico").push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
@@ -113,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         } else if (selectedUser.equals("usuario")){
-            mDatabase.child("Users").child("Usuario").push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+            mDatabase.child("Users").child("usuario").push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){

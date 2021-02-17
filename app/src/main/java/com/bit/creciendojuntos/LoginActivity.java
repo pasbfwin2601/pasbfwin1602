@@ -45,8 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Ingresar");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mTextInputEmail = findViewById(R.id.textInputEmail);
-        mTextInputPassword = findViewById(R.id.textInputPassword);
+        mTextInputEmail = findViewById(R.id.textInputEmailLog);
+        mTextInputPassword = findViewById(R.id.textInputPasswordLog);
         mButtonLogin = (Button) findViewById(R.id.btnLogin);
 
         mAuth = FirebaseAuth.getInstance();

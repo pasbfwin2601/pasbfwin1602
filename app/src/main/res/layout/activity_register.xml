@@ -44,7 +44,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputNombre"
+                android:id="@+id/textInputNombreReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombre Completo"
@@ -73,7 +73,7 @@
                 android:layout_marginLeft="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputCorreo"
+                    android:id="@+id/textInputCorreoReg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Correo Electrónico"
@@ -102,7 +102,7 @@
                 android:layout_marginLeft="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputPassword"
+                    android:id="@+id/textInputPasswordReg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Contraseña"

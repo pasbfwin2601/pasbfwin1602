@@ -43,7 +43,7 @@
                 android:layout_marginLeft="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEmail"
+                    android:id="@+id/textInputEmailLog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Correo Electrónico"
@@ -72,7 +72,7 @@
                 android:layout_marginLeft="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputPassword"
+                    android:id="@+id/textInputPasswordLog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Contraseña"
