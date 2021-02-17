@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText mTextInputEmail;
     TextInputEditText mTextInputPassword;
     Button mButtonLogin;
-    private Toolbar mToolbar;
+    Toolbar mToolbar;
 
     AlertDialog mDialog;
 
@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                       login();
+                login();
             }
         });
     }

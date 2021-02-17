@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,11 +22,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private TextInputEditText mTextInputNombre;
-    private TextInputEditText mTextInputEmail;
-    private TextInputEditText mTextInputPassword;
-    private Button mButtonRegister;
-    private Toolbar mToolbar;
+    TextInputEditText mTextInputNombre;
+    TextInputEditText mTextInputEmail;
+    TextInputEditText mTextInputPassword;
+    Button mButtonRegister;
+    Toolbar mToolbar;
     SharedPreferences mPref;
 
 
@@ -43,9 +44,9 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Registrar");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mTextInputNombre = (TextInputEditText) findViewById(R.id.textInputNombre);
-        mTextInputEmail = (TextInputEditText) findViewById(R.id.textInputEmail);
-        mTextInputPassword = (TextInputEditText) findViewById(R.id.textInputPassword);
+        mTextInputNombre = findViewById(R.id.textInputNombre);
+        mTextInputEmail = findViewById(R.id.textInputEmail);
+        mTextInputPassword = findViewById(R.id.textInputPassword);
         mButtonRegister = (Button) findViewById(R.id.btnRegister);
 
         mAuth = FirebaseAuth.getInstance();
@@ -53,25 +54,33 @@ public class RegisterActivity extends AppCompatActivity {
 
         mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                register();
+            public void onClick(View view) {
+                Toast.makeText(RegisterActivity.this, "pepito", Toast.LENGTH_SHORT).show();
+               register();
             }
         });
 
     }
 
-    private void register() {
-        final String nombre = mTextInputNombre.getText().toString();
-        final String email = mTextInputEmail.getText().toString();
-        final String password = mTextInputPassword.getText().toString();
+    void register() {
 
-        if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+        final String nombre = mTextInputNombre.getText().toString();
+        Log.d("nombre",nombre);
+        final String email = mTextInputEmail.getText().toString();
+        Log.d("prueba2","prueba2");
+        final String password = mTextInputPassword.getText().toString();
+        Log.d("prueba3","prueba3");
+
+        if (!email.isEmpty() && !password.isEmpty()) {
+       //if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
             if (password.length() >= 6) {
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            saveUser(nombre,email);
+                            String id = mAuth.getCurrentUser().getUid();
+                            Toast.makeText(RegisterActivity.this, "pepito", Toast.LENGTH_SHORT).show();
+                            //saveUser(nombre,email);
                         } else {
                             Toast.makeText(RegisterActivity.this, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show();
                         }
@@ -85,16 +94,35 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private void saveUser(String nombre, String email) {
+    void saveUser(String nombre, String email) {
         String selectedUser = mPref.getString("user","");
         User user = new User();
         user.setEmail(email);
         user.setNombre(nombre);
 
         if (selectedUser.equals("medico")){
-            mDatabase.child("Users").child("Medico").push().setValue(user);
+            mDatabase.child("Users").child("Medico").push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(RegisterActivity.this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(RegisterActivity.this, "Falló el registro", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         } else if (selectedUser.equals("usuario")){
-            mDatabase.child("Users").child("Usuario").push().setValue(user);
+            mDatabase.child("Users").child("Usuario").push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(RegisterActivity.this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Fallo el Registro", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
     }
 }
