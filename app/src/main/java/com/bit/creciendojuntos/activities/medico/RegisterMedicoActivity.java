@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 
 import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.activities.medico.RegisterMedicoActivity;
+import com.bit.creciendojuntos.activities.usuario.PantallaUsuarioActivity;
+import com.bit.creciendojuntos.activities.usuario.RegisterActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.models.Medico;
 import com.bit.creciendojuntos.providers.AuthProvider;
@@ -25,14 +28,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import dmax.dialog.SpotsDialog;
 
 public class RegisterMedicoActivity extends AppCompatActivity {
-
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_medico);
-
-
-    }*/
 
     TextInputEditText mTextInputNombre;
     TextInputEditText mTextInputEmail;
@@ -128,7 +123,10 @@ public class RegisterMedicoActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(RegisterMedicoActivity.this, "El registro del médico se realizó correctamente", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RegisterMedicoActivity.this, PantallaMedicoActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    //Toast.makeText(RegisterMedicoActivity.this, "El registro del médico se realizó correctamente", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(RegisterMedicoActivity.this, "No se pudo crear el cliente", Toast.LENGTH_SHORT).show();

@@ -22,7 +22,8 @@ tools:context=".activities.medico.RegisterMedicoActivity">
         android:src="@drawable/creciendojuntos"
         android:layout_gravity="center"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -100,7 +101,7 @@ tools:context=".activities.medico.RegisterMedicoActivity">
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-10dp">
+            android:layout_marginTop="-15dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputPasswordRegM"

@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
-        <activity android:name=".activities.medico.RegisterMedicoActivity"
-            android:parentActivityName=".activities.SelectOptionAuthActivity"/>
+        <activity android:name=".activities.medico.PantallaMedicoActivity"></activity>
+        <activity android:name=".activities.usuario.PantallaUsuarioActivity" />
+        <activity
+            android:name=".activities.medico.RegisterMedicoActivity"
+            android:parentActivityName=".activities.SelectOptionAuthActivity" />
         <activity
             android:name=".activities.LoginActivity"
             android:parentActivityName=".activities.SelectOptionAuthActivity" />

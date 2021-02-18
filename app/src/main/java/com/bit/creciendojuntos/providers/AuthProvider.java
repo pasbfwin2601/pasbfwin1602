@@ -21,4 +21,8 @@ public class AuthProvider {
         return mAuth.signInWithEmailAndPassword(email, password);
     }
 
+    public void logout(){
+        mAuth.signOut();
+    }
+
 }
