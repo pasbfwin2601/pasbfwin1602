@@ -1,19 +1,17 @@
-package com.bit.creciendojuntos;
+package com.bit.creciendojuntos.activities.usuario;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.includes.MyToolbar;
-import com.bit.creciendojuntos.models.User;
 import com.bit.creciendojuntos.models.Usuario;
 import com.bit.creciendojuntos.providers.AuthProvider;
 import com.bit.creciendojuntos.providers.MedicoProvider;
@@ -23,8 +21,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import dmax.dialog.SpotsDialog;
 
@@ -37,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextInputEditText mTextInputDomicilio;
     TextInputEditText mTextInputTelefono;
     Button mButtonRegister;
-    SharedPreferences mPref;
+
 
     AlertDialog mDialog;
 
@@ -45,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
     //DatabaseReference mDatabase;
     AuthProvider mAuthProvider;
     UsuarioProvider mUsuarioProvider;
-    MedicoProvider  mMedicoProvider;
+
 
 
     @Override
@@ -56,9 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuthProvider = new AuthProvider();
         mUsuarioProvider = new UsuarioProvider();
-        mMedicoProvider = new MedicoProvider();
 
-        mPref = getApplicationContext().getSharedPreferences("typeUser",MODE_PRIVATE);
+
 
         mDialog = new SpotsDialog.Builder().setContext(RegisterActivity.this).setMessage("Espere un momento...").build();
         mTextInputNombre = findViewById(R.id.textInputNombreReg);
@@ -103,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    void register(final String nombre, String email, String password, final String documento, final String domicilio, final String telefono) {
+    void register(final String nombre, final String email, String password, final String documento, final String domicilio, final String telefono) {
         mAuthProvider.register(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

@@ -11,16 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
+        <activity android:name=".activities.medico.RegisterMedicoActivity"
+            android:parentActivityName=".activities.SelectOptionAuthActivity"/>
         <activity
-            android:name=".LoginActivity"
-            android:parentActivityName=".SelectOptionAuthActivity" ></activity>
+            android:name=".activities.LoginActivity"
+            android:parentActivityName=".activities.SelectOptionAuthActivity" />
         <activity
-            android:name=".RegisterActivity"
-            android:parentActivityName=".SelectOptionAuthActivity" ></activity>
+            android:name=".activities.usuario.RegisterActivity"
+            android:parentActivityName=".activities.SelectOptionAuthActivity" />
         <activity
-            android:name=".SelectOptionAuthActivity"
-            android:parentActivityName=".MainActivity" ></activity>
-        <activity android:name=".MainActivity">
+            android:name=".activities.SelectOptionAuthActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
