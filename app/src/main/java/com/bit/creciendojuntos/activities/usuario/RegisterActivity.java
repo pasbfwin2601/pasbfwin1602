@@ -88,6 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
         final String telefono = mTextInputTelefono.getText().toString();
 
         if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty() && !documento.isEmpty() && !domicilio.isEmpty() && !telefono.isEmpty()) {
+           //verifica que la contraseña tenga 6 o mas caracteres
             if (password.length() >= 6) {
                 mDialog.show();
                 register(nombre, email, password, documento, domicilio, telefono);
