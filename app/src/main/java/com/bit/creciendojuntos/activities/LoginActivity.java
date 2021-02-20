@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     Button mButtonLogin;
     SharedPreferences mPref;
 
+    // Alerta dialog
     AlertDialog mDialog;
 
     FirebaseAuth mAuth;
