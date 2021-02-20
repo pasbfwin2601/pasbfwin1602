@@ -72,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
         //Verifica que los campos no esten vacios
         if (!email.isEmpty() && !password.isEmpty()) {
             if (password.length() >= 6) {
+                //Alerta Dialog en login
                 mDialog.show();
                  mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
