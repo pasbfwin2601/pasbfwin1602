@@ -88,7 +88,9 @@ public class RegisterMedicoActivity extends AppCompatActivity {
         final String telefono = mTextInputTelefono.getText().toString();
         final String especialidad =  mTextInputEspecialidad.getText().toString();
 
+        //Verifica que ningun campo este vacio
         if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty() && !nroMatricula.isEmpty() && !telefono.isEmpty() && ! especialidad.isEmpty()) {
+            //Verifica que el largo de la contrasenia sea mayor a 6 caracteres
             if (password.length() >= 6) {
                 mDialog.show();
                 register(nombre, email, password, nroMatricula, telefono, especialidad);
