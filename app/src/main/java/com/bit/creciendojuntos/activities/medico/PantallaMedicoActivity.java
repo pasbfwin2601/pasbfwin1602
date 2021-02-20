@@ -22,6 +22,7 @@ public class PantallaMedicoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_medico);
 
+        // Boton para salir de la sesion de medico
         mButtonLogoutM = (Button) findViewById(R.id.btnLogoutM);
         mAuthProvider = new AuthProvider();
 
