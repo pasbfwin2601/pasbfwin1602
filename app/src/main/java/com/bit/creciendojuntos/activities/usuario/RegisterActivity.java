@@ -87,6 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
         final String domicilio = mTextInputDomicilio.getText().toString();
         final String telefono = mTextInputTelefono.getText().toString();
 
+        //Verifica que los campos no esten vacios
         if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty() && !documento.isEmpty() && !domicilio.isEmpty() && !telefono.isEmpty()) {
            //verifica que la contraseña tenga 6 o mas caracteres
             if (password.length() >= 6) {
