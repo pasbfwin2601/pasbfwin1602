@@ -34,5 +34,7 @@ public class PantallaMedicoActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 }
