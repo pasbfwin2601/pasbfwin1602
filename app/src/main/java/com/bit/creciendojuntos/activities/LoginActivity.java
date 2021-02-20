@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         String email = mTextInputEmail.getText().toString();
         String password = mTextInputPassword.getText().toString();
 
+        //Verifica que los campos no esten vacios
         if (!email.isEmpty() && !password.isEmpty()) {
             if (password.length() >= 6) {
                 mDialog.show();
