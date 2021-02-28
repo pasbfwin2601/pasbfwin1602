@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    //push login
+    //otra prueba de push
     private void login() {
         String email = mTextInputEmail.getText().toString();
         String password = mTextInputPassword.getText().toString();
