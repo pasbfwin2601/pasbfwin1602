@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    //Login de usuarios y medicos
+
     private void login() {
         String email = mTextInputEmail.getText().toString();
         String password = mTextInputPassword.getText().toString();
