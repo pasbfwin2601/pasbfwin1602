@@ -27,4 +27,16 @@ public class MedicoProvider {
         return mDatabase.child(medico.getId()).setValue(map);
     }
 
+    public Task<Void> update(Medico medico){
+        Map<String, Object> map = new HashMap<>();
+        map.put("nombre", medico.getNombre());
+        map.put("telefono", medico.getTelefono());
+        map.put("image", medico.getImage());
+        return mDatabase.child(medico.getId()).setValue(map);
+    }
+
+    public DatabaseReference getMedico(String idMedico) {
+        return mDatabase.child(idMedico);
+    }
+
 }

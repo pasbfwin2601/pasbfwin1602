@@ -52,6 +52,10 @@ public class PantallaMedicoActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_logout) {
             logout();
         }
+        if (item.getItemId() == R.id.action_Perfil) {
+            ;Intent intent = new Intent(PantallaMedicoActivity.this, UpdateProfileMedicoActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 

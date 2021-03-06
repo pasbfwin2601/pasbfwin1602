@@ -8,6 +8,7 @@ public class Medico {
     String nroMatricula;
     String telefono;
     String especialidad;
+    String image;
 
     public Medico() {
     }
@@ -19,6 +20,16 @@ public class Medico {
         this.nroMatricula = nroMatricula;
         this.telefono = telefono;
         this.especialidad = especialidad;
+    }
+
+    public Medico(String id, String nombre, String email, String nroMatricula, String telefono, String especialidad, String image) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.nroMatricula = nroMatricula;
+        this.telefono = telefono;
+        this.especialidad = especialidad;
+        this.image = image;
     }
 
     public String getId() {
@@ -67,5 +78,13 @@ public class Medico {
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
