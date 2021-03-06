@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
-        <activity android:name=".activities.medico.PantallaMedicoActivity"></activity>
+        <activity android:name=".activities.usuario.UpdateProfileActivity"></activity>
+        <activity android:name=".activities.medico.PantallaMedicoActivity" />
         <activity android:name=".activities.usuario.PantallaUsuarioActivity" />
         <activity
             android:name=".activities.medico.RegisterMedicoActivity"
