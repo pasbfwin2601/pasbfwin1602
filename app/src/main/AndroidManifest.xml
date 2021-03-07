@@ -14,12 +14,18 @@
         android:theme="@style/Theme.CreciendoJuntos">
 
         <activity
+            android:name=".activities.usuario.UpdateProfileUsuarioActivity"
+            android:parentActivityName=".activities.usuario.PantallaUsuarioActivity" />
+
+        <activity
             android:name=".activities.medico.UpdateProfileMedicoActivity"
-            android:parentActivityName=".activities.medico.PantallaMedicoActivity"/>
+            android:parentActivityName=".activities.medico.PantallaMedicoActivity" />
 
-        <activity android:name=".activities.medico.PantallaMedicoActivity" />
+        <activity
+            android:name=".activities.medico.PantallaMedicoActivity" />
 
-        <activity android:name=".activities.usuario.PantallaUsuarioActivity" />
+        <activity
+            android:name=".activities.usuario.PantallaUsuarioActivity" />
 
         <activity
             android:name=".activities.medico.RegisterMedicoActivity"

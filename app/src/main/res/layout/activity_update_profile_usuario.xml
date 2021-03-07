@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activities.medico.UpdateProfileMedicoActivity">
+    tools:context=".activities.usuario.UpdateProfileUsuarioActivity">
 
     <include layout="@layout/action_bar_toolbar" />
 
@@ -21,18 +21,17 @@
             android:layout_height="100dp"
             android:src="@drawable/creciendojuntos"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"/>
+             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
         <ImageView
-            android:id="@+id/imageViewProfile"
+            android:id="@+id/imageViewProfileUsuario"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:src="@drawable/icon_medico"
-            />
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/icon_user" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,10 +54,40 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textUpdateNombreRegM"
+                    android:id="@+id/textUpdateNombreRegU"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombre Completo"
+                    android:inputType="text">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="15dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:src="@drawable/icon_home"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="20dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputUpdateDireccionU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Domicilio"
                     android:inputType="text">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -85,7 +114,7 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textUpdateTelefonoRegM"
+                    android:id="@+id/textUpdateTelefonoRegU"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Telefono"
@@ -103,7 +132,7 @@
             android:gravity="bottom">
 
             <Button
-                android:id="@+id/btnUpdateMedico"
+                android:id="@+id/btnUpdateUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_button"
@@ -121,3 +150,5 @@
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

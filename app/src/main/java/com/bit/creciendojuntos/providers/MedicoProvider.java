@@ -32,7 +32,7 @@ public class MedicoProvider {
         map.put("nombre", medico.getNombre());
         map.put("telefono", medico.getTelefono());
         map.put("image", medico.getImage());
-        return mDatabase.child(medico.getId()).setValue(map);
+        return mDatabase.child(medico.getId()).updateChildren(map);
     }
 
     public DatabaseReference getMedico(String idMedico) {

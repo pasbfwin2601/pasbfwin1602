@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.activities.MainActivity;
 import com.bit.creciendojuntos.activities.medico.PantallaMedicoActivity;
+import com.bit.creciendojuntos.activities.medico.UpdateProfileMedicoActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.providers.AuthProvider;
 
@@ -49,6 +50,10 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
             logout();
+        }
+        if (item.getItemId() == R.id.action_Perfil_Usuario) {
+            ;Intent intent = new Intent(PantallaUsuarioActivity.this, UpdateProfileUsuarioActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
