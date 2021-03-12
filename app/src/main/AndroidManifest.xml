@@ -12,39 +12,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
-
+        <activity
+            android:name=".activities.medico.InfoMedicoActivity"
+            android:parentActivityName=".activities.medico.PantallaMedicoActivity">
+        </activity>
+        <activity
+            android:name=".activities.usuario.InfoUsuarioActivity"
+            android:parentActivityName=".activities.usuario.PantallaUsuarioActivity">
+        </activity>
         <activity
             android:name=".activities.usuario.UpdateProfileUsuarioActivity"
             android:parentActivityName=".activities.usuario.PantallaUsuarioActivity" />
-
         <activity
             android:name=".activities.medico.UpdateProfileMedicoActivity"
             android:parentActivityName=".activities.medico.PantallaMedicoActivity" />
-
-        <activity
-            android:name=".activities.medico.PantallaMedicoActivity" />
-
-        <activity
-            android:name=".activities.usuario.PantallaUsuarioActivity" />
-
+        <activity android:name=".activities.medico.PantallaMedicoActivity" />
+        <activity android:name=".activities.usuario.PantallaUsuarioActivity" />
         <activity
             android:name=".activities.medico.RegisterMedicoActivity"
             android:parentActivityName=".activities.SelectOptionAuthActivity" />
-
         <activity
             android:name=".activities.LoginActivity"
             android:parentActivityName=".activities.SelectOptionAuthActivity" />
-
         <activity
             android:name=".activities.usuario.RegisterActivity"
             android:parentActivityName=".activities.SelectOptionAuthActivity" />
-
         <activity
             android:name=".activities.SelectOptionAuthActivity"
             android:parentActivityName=".activities.MainActivity" />
-
         <activity android:name=".activities.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

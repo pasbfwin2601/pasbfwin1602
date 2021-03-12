@@ -12,8 +12,6 @@ import android.widget.Button;
 
 import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.activities.MainActivity;
-import com.bit.creciendojuntos.activities.medico.PantallaMedicoActivity;
-import com.bit.creciendojuntos.activities.medico.UpdateProfileMedicoActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.providers.AuthProvider;
 
@@ -53,6 +51,10 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
         }
         if (item.getItemId() == R.id.action_Perfil_Usuario) {
             ;Intent intent = new Intent(PantallaUsuarioActivity.this, UpdateProfileUsuarioActivity.class);
+            startActivity(intent);
+        }
+        if (item.getItemId() == R.id.action_info) {
+            ;Intent intent = new Intent(PantallaUsuarioActivity.this, InfoUsuarioActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
