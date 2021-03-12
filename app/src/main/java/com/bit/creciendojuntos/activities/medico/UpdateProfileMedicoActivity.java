@@ -128,7 +128,7 @@ public class UpdateProfileMedicoActivity extends AppCompatActivity {
                         Picasso.get().load(image).into(mImageViewMedico);
                         //Picasso.with(UpdateProfileMedicoActivity.this).load(image).into(mImageViewMedico);
                     } else {
-                        Toast.makeText(UpdateProfileMedicoActivity.this, "Sugerencia: cargar una imagen personal", Toast.LENGTH_LONG).show();
+                        Toast.makeText(UpdateProfileMedicoActivity.this, "Para actualizar el perfil, debe cargar una nueva imagen personal", Toast.LENGTH_LONG).show();
                     }
                     mTextViewNombreMedico.setText(nombreMedico);
                     mTextViewTelefonoMedico.setText(telefonoMedico);
@@ -151,7 +151,7 @@ public class UpdateProfileMedicoActivity extends AppCompatActivity {
             mProgressDialog.show();
             saveImage();
         } else {
-            Toast.makeText(UpdateProfileMedicoActivity.this, "Ingresa el nombre, el telefono y la imagen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(UpdateProfileMedicoActivity.this, "Actualice el nombre, el telefono y la imagen", Toast.LENGTH_SHORT).show();
         }
     }
 

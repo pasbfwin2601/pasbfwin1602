@@ -131,7 +131,7 @@ public class UpdateProfileUsuarioActivity extends AppCompatActivity {
                         //Picasso.with(UpdateProfileUsuarioActivity.this).load(image).into(mImageViewUsuario);
 
                     } else {
-                        Toast.makeText(UpdateProfileUsuarioActivity.this, "Sugerencia: cargar una imagen personal", Toast.LENGTH_LONG).show();
+                        Toast.makeText(UpdateProfileUsuarioActivity.this, "Para actualizar el perfil, debe cargar una nueva imagen personal", Toast.LENGTH_LONG).show();
                     }
                     mTextViewNombreUsuario.setText(nombreUsuario);
                     mTextViewDireccionUsuario.setText(direccionUsuario);
@@ -150,13 +150,13 @@ public class UpdateProfileUsuarioActivity extends AppCompatActivity {
         mNombre = mTextViewNombreUsuario.getText().toString();
         mDomicilio = mTextViewDireccionUsuario.getText().toString();
         mTelefono = mTextViewTelefonoUsuario.getText().toString();
-        if (!mNombre.equals("") && !mDomicilio.equals("") && !mTelefono.equals("") && mImageFile != null) {
+        if (!mNombre.equals("") && !mDomicilio.equals("") && !mTelefono.equals("")  && mImageFile != null) {
             mProgressDialog.setMessage("Espere un momento");
             mProgressDialog.setCanceledOnTouchOutside(false);
             mProgressDialog.show();
             saveImage();
         } else {
-            Toast.makeText(com.bit.creciendojuntos.activities.usuario.UpdateProfileUsuarioActivity.this, "Ingresa el nombre, el telefono y la imagen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(com.bit.creciendojuntos.activities.usuario.UpdateProfileUsuarioActivity.this, "Actualice el nombre, el telefono, la direccion y la imagen", Toast.LENGTH_SHORT).show();
         }
     }
 
