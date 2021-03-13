@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bit.creciendojuntos.R;
+import com.bit.creciendojuntos.activities.usuario.InfoUsuarioActivity;
 import com.bit.creciendojuntos.activities.MainActivity;
-import com.bit.creciendojuntos.activities.usuario.PantallaUsuarioActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.providers.AuthProvider;
 
@@ -27,6 +27,7 @@ public class PantallaMedicoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_medico);
 
         MyToolbar.show(this,"Menú del Médico",false);
+        MedicoDAO.getInstance().subirFotoDefecto();
 
         // Boton para salir de la sesion de medico
         mButtonLogoutM = (Button) findViewById(R.id.btnLogoutM);
@@ -52,6 +53,15 @@ public class PantallaMedicoActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_logout) {
             logout();
         }
+        if (item.getItemId() == R.id.action_Perfil) {
+            ;Intent intent = new Intent(PantallaMedicoActivity.this, UpdateProfileMedicoActivity.class);
+            startActivity(intent);
+        }
+        if (item.getItemId() == R.id.action_info) {
+            ;Intent intent = new Intent(PantallaMedicoActivity.this, InfoUsuarioActivity.class);
+            startActivity(intent);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

@@ -12,7 +12,6 @@ import android.widget.Button;
 
 import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.activities.MainActivity;
-import com.bit.creciendojuntos.activities.medico.PantallaMedicoActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.providers.AuthProvider;
 
@@ -26,6 +25,8 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_usuario);
         MyToolbar.show(this,"Menú del Usuario",false);
+        //Subir foto por defecto al usuario
+        UsuarioDAO.getInstance().subirFotoDefecto();
 
         mButtonLogoutU = (Button) findViewById(R.id.btnLogoutU);
         mAuthProvider = new AuthProvider();
@@ -49,6 +50,14 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
             logout();
+        }
+        if (item.getItemId() == R.id.action_Perfil_Usuario) {
+            ;Intent intent = new Intent(PantallaUsuarioActivity.this, UpdateProfileUsuarioActivity.class);
+            startActivity(intent);
+        }
+        if (item.getItemId() == R.id.action_info) {
+            ;Intent intent = new Intent(PantallaUsuarioActivity.this, InfoUsuarioActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

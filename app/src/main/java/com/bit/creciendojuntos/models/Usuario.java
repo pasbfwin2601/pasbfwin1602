@@ -8,6 +8,7 @@ public class Usuario {
     String documento;
     String domicilio;
     String telefono;
+    String image;
 
     public Usuario() {
     }
@@ -19,6 +20,16 @@ public class Usuario {
         this.documento = documento;
         this.domicilio = domicilio;
         this.telefono = telefono;
+    }
+
+    public Usuario(String id, String nombre, String email, String documento, String domicilio, String telefono, String image) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.documento = documento;
+        this.domicilio = domicilio;
+        this.telefono = telefono;
+        this.image = image;
     }
 
     public String getId() {
@@ -67,5 +78,13 @@ public class Usuario {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

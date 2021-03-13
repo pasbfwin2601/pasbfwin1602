@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.usuario.InfoUsuarioActivity">
+
+    <include layout="@layout/action_bar_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/creciendojuntos"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtInfo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="19dp"
+                android:inputType="textMultiLine"
+                android:maxLines="13"
+                android:lines="13"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:singleLine="false"
+                android:text="CreciendoJuntos es  una aplicación movil\npensada con  un  fin social y desarrollada\npara cubrir diversas necesidades que hoy\ndia existen en el sistema de salud, ya que\nlos registros  actualmente no incluyen  el carnet de salud digital para niñas y niños.\n\nEste carnet  incluye información desde el\nnacimiento del niño hasta los 12 años de\nedad, siendo este documento obligatorio para la inscripción en nuestro sistema de\neducación,  realizar  deportes y  registrar los controles médicos.">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/txtWinWin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="30"
+                android:textSize="19dp"
+                android:textColor="@color/black"
+                android:singleLine="false"
+                android:text="Desarrollado por Equipo WinWin">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:gravity="bottom"
+            android:orientation="vertical"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
