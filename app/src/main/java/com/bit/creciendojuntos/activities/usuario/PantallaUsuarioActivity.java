@@ -52,7 +52,7 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //Logout
     void logout(){
         mAuthProvider.logout();
         Intent intent = new Intent(PantallaUsuarioActivity.this, MainActivity.class);
