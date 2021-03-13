@@ -51,6 +51,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         MyToolbar.show(this,"Registrar",true);
 
+        UsuarioDAO.getInstance().subirFotoDefecto();
+
         mAuthProvider = new AuthProvider();
         mUsuarioProvider = new UsuarioProvider();
 
@@ -124,6 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    UsuarioDAO.getInstance().subirFotoDefecto();
                     Intent intent = new Intent(RegisterActivity.this, PantallaUsuarioActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);

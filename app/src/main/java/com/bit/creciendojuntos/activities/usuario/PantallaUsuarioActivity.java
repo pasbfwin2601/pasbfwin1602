@@ -25,6 +25,7 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_usuario);
         MyToolbar.show(this,"Menú del Usuario",false);
+        UsuarioDAO.getInstance().subirFotoDefecto();
 
         mButtonLogoutU = (Button) findViewById(R.id.btnLogoutU);
         mAuthProvider = new AuthProvider();

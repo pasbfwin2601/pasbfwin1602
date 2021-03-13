@@ -51,7 +51,9 @@ public class UpdateProfileMedicoActivity extends AppCompatActivity {
     private AuthProvider mAuthProvider;
     private ImagesProvider mImageProvider;
 
+
     private File mImageFile;
+    private File mImageFileGenerica;
     private String mImage;
 
     private final int GALLERY_REQUEST = 1;
@@ -128,6 +130,7 @@ public class UpdateProfileMedicoActivity extends AppCompatActivity {
                         Picasso.get().load(image).into(mImageViewMedico);
                         //Picasso.with(UpdateProfileMedicoActivity.this).load(image).into(mImageViewMedico);
                     } else {
+                        saveSoloImage();
                         Toast.makeText(UpdateProfileMedicoActivity.this, "Para actualizar el perfil, debe cargar una nueva imagen personal", Toast.LENGTH_LONG).show();
                     }
                     mTextViewNombreMedico.setText(nombreMedico);
@@ -180,6 +183,34 @@ public class UpdateProfileMedicoActivity extends AppCompatActivity {
                     });
                 } else {
                     Toast.makeText(UpdateProfileMedicoActivity.this, "Hubo un error al subir la imagen", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void saveSoloImage() {
+        mImageProvider.saveImage(UpdateProfileMedicoActivity.this,mImageFile, mAuthProvider.getId()).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                if (task.isSuccessful()){
+                    mImageProvider.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            String image = uri.toString();
+                            Medico medico = new Medico();
+                            medico.setImage(image);
+                            medico.setId(mAuthProvider.getId());
+                            mMedicoProvider.update(medico).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    mProgressDialog.dismiss();
+                                    Toast.makeText(UpdateProfileMedicoActivity.this, "La imagen se guardo correctamente", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    Toast.makeText(UpdateProfileMedicoActivity.this, "Hubo un error al guardar la imagen", Toast.LENGTH_SHORT).show();
                 }
             }
         });

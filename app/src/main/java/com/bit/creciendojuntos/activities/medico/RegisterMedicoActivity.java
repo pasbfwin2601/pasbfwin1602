@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bit.creciendojuntos.R;
@@ -18,12 +19,15 @@ import com.bit.creciendojuntos.activities.usuario.RegisterActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.models.Medico;
 import com.bit.creciendojuntos.providers.AuthProvider;
+import com.bit.creciendojuntos.providers.ImagesProvider;
 import com.bit.creciendojuntos.providers.MedicoProvider;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.io.File;
 
 import dmax.dialog.SpotsDialog;
 
@@ -52,6 +56,8 @@ public class RegisterMedicoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_medico);
         MyToolbar.show(this,"Registrar de Médico",true);
 
+        MedicoDAO.getInstance().subirFotoDefecto();
+
         mAuthProvider = new AuthProvider();
         mMedicoProvider = new MedicoProvider();
 
@@ -65,6 +71,8 @@ public class RegisterMedicoActivity extends AppCompatActivity {
         mTextInputTelefono = findViewById(R.id.textInputTelefonoRegM);
         mTextInputEspecialidad = findViewById(R.id.textInputEspecialidadRegM);
         mButtonRegister = (Button) findViewById(R.id.btnRegister);
+
+
 
         //mAuth = FirebaseAuth.getInstance();
         //mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -103,6 +111,7 @@ public class RegisterMedicoActivity extends AppCompatActivity {
     }
 
     void register(final String nombre, final String email, String password, final String nroMatricula, final String telefono, final String  especialidad) {
+
         mAuthProvider.register(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -125,6 +134,7 @@ public class RegisterMedicoActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    MedicoDAO.getInstance().subirFotoDefecto();
                     Intent intent = new Intent(RegisterMedicoActivity.this, PantallaMedicoActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);

@@ -27,6 +27,7 @@ public class PantallaMedicoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_medico);
 
         MyToolbar.show(this,"Menú del Médico",false);
+        MedicoDAO.getInstance().subirFotoDefecto();
 
         // Boton para salir de la sesion de medico
         mButtonLogoutM = (Button) findViewById(R.id.btnLogoutM);

@@ -14,9 +14,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.bit.creciendojuntos.R;
+import com.bit.creciendojuntos.activities.medico.MedicoDAO;
 import com.bit.creciendojuntos.activities.medico.PantallaMedicoActivity;
 import com.bit.creciendojuntos.activities.usuario.PantallaUsuarioActivity;
 import com.bit.creciendojuntos.activities.usuario.RegisterActivity;
+import com.bit.creciendojuntos.activities.usuario.UsuarioDAO;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -54,6 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         MyToolbar.show(this,"Ingresar",true);
+        MedicoDAO.getInstance().subirFotoDefecto();
+        UsuarioDAO.getInstance().subirFotoDefecto();
 
         mTextInputEmail = findViewById(R.id.textInputEmailLog);
         mTextInputPassword = findViewById(R.id.textInputPasswordLog);
