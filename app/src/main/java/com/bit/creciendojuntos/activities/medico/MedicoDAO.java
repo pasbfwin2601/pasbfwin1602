@@ -35,6 +35,7 @@ public class MedicoDAO {
     }
 
     public String getKeyMedico(){
+
         return FirebaseAuth.getInstance().getUid();
     }
 

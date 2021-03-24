@@ -30,9 +30,9 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:src="@drawable/icon_medico"
-            />
+            android:layout_marginBottom="30dp"/>
+        <!--android:src="@drawable/icon_medico"-->
+
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -36,6 +36,7 @@ public class MedicoProvider {
     }
 
     public DatabaseReference getMedico(String idMedico) {
+
         return mDatabase.child(idMedico);
     }
 

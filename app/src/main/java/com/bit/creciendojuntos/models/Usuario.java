@@ -9,8 +9,14 @@ public class Usuario {
     String domicilio;
     String telefono;
     String image;
+    Hijo hijo;
 
     public Usuario() {
+    }
+
+    public Usuario(String id, Hijo hijo) {
+        this.id = id;
+        this.hijo = hijo;
     }
 
     public Usuario(String id, String nombre, String email, String documento, String domicilio, String telefono) {
@@ -86,5 +92,13 @@ public class Usuario {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Hijo getHijo() {
+        return hijo;
+    }
+
+    public void setHijo(Hijo hijo) {
+        this.hijo = hijo;
     }
 }

@@ -37,6 +37,8 @@ public class UsuarioProvider {
         return mDatabase.child(usuario.getId()).updateChildren(map);
     }
 
+
+
     public DatabaseReference getUsuario(String idUsuario) {
         return mDatabase.child(idUsuario);
     }
