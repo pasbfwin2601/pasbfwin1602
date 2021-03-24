@@ -40,8 +40,7 @@ tools:context=".activities.usuario.PantallaUsuarioActivity">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                      android:layout_gravity="center"
+                    android:layout_gravity="center"
                     android:textSize="20sp"
                     android:text="Bienvenido: "
                     android:textStyle="bold">
@@ -52,7 +51,6 @@ tools:context=".activities.usuario.PantallaUsuarioActivity">
                 android:id="@+id/txViewNombrePadre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
                 android:layout_gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold">

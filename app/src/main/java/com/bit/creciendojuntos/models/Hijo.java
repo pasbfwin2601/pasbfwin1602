@@ -2,6 +2,7 @@ package com.bit.creciendojuntos.models;
 
 public class Hijo {
 
+    String claveH;
     String nombreH;
     String documentoH;
     String documentoP;
@@ -12,6 +13,20 @@ public class Hijo {
     public Hijo(String nombreH, String documentoH) {
         this.nombreH = nombreH;
         this.documentoH = documentoH;
+    }
+
+    public Hijo(String claveH, String nombreH, String documentoH) {
+        this.claveH = claveH;
+        this.nombreH = nombreH;
+        this.documentoH = documentoH;
+    }
+
+    public String getClaveH() {
+        return claveH;
+    }
+
+    public void setClaveH(String claveH) {
+        this.claveH = claveH;
     }
 
     public String getNombreH() {

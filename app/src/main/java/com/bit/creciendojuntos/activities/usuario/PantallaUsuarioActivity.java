@@ -2,11 +2,8 @@ package com.bit.creciendojuntos.activities.usuario;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,10 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,26 +19,21 @@ import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.activities.MainActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.models.Hijo;
-import com.bit.creciendojuntos.models.Usuario;
 import com.bit.creciendojuntos.providers.AuthProvider;
 import com.bit.creciendojuntos.providers.UsuarioProvider;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.FirebaseError;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PantallaUsuarioActivity extends AppCompatActivity {
 
+     static String claveHijo;
+     static String nombreHijo;
+     static String documentoHijo;
      Button mBtnBuscarDocH;
      Button mBtnConsultarEspecialidades;
      AuthProvider mAuthProvider;
@@ -56,10 +45,11 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
      TextView mTxViewDocumentoPadre;
      TextView mTxViewNombrePadre;
      String documentoPadre;
-     String documentoHijo;
      String nombrePadre;
+
      boolean encontroHijos;
      long cantHijos, hijoActual;
+     Hijo hijoMio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +72,7 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
         mTxViewNombrePadre =  findViewById(R.id.txViewNombrePadre);
         mRootReference = FirebaseDatabase.getInstance().getReference();
         getUsuarioInfo();
-       mTextInputDocHBuscar.addTextChangedListener(new TextWatcher() {
+        mTextInputDocHBuscar.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
                 if (s.toString().length() > 0) {
                     mBtnBuscarDocH.setVisibility(View.VISIBLE);
@@ -101,6 +91,14 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
             public void onClick(View view) {
                 documentoHijo = mTextInputDocHBuscar.getText().toString();
                 getHijoInfo(documentoHijo,documentoPadre);
+            }
+        });
+
+        mBtnConsultarEspecialidades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PantallaUsuarioActivity.this, ConsultarEspecialidadesActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -127,7 +125,7 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    //Logout
+
     void logout(){
         mAuthProvider.logout();
         Intent intent = new Intent(PantallaUsuarioActivity.this, MainActivity.class);
@@ -157,6 +155,8 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
 
     }
 
+
+
     private void getHijoInfo(String docuH,String docuP) {
 
         Query childRef = FirebaseDatabase.getInstance().getReference().child("Users").child("hijo").orderByChild("documentoH").equalTo(docuH);
@@ -180,17 +180,19 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             hijoActual++;
-                            Hijo hijo = snapshot.getValue(Hijo.class);
-                            String nombreH = hijo.getNombreH();
-                            String documentoH = hijo.getDocumentoH();
-                            String documentoP = hijo.getDocumentoP();
+                            hijoMio = snapshot.getValue(Hijo.class);
+                            hijoMio.setClaveH(snapshot.getKey());
+                            claveHijo = hijoMio.getClaveH();
+                            nombreHijo = hijoMio.getNombreH();
+                            documentoHijo = hijoMio.getDocumentoH();
+                            documentoPadre = hijoMio.getDocumentoP();
 
-                            if (documentoH.equals(docuH) && documentoP.equals(docuP)) {
+                            if (documentoHijo.equals(docuH) && documentoPadre.equals(docuP)) {
                             //if (documentoP.equals(docuP)) {
-                                mTxViewNombreHijo.setText(nombreH);
-                                mTxViewDocumentoHijo.setText(documentoH);
-                                mTxViewDocumentoPadre.setText(documentoP);
-                               encontroHijos = true;
+                                mTxViewNombreHijo.setText(nombreHijo);
+                                mTxViewDocumentoHijo.setText(documentoHijo);
+                                mTxViewDocumentoPadre.setText(documentoPadre);
+                                encontroHijos = true;
                                 mBtnConsultarEspecialidades.setVisibility(View.VISIBLE);
                             }
 
@@ -218,5 +220,17 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static String devolverNombre(){
+        return nombreHijo;
+    }
+
+    public static String devolverDocumento(){
+        return documentoHijo;
+    }
+
+    public static String devolverClave(){
+        return claveHijo;
     }
 }
