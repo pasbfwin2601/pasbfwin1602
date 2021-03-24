@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -63,14 +64,20 @@ public class AltaHijoActivity extends AppCompatActivity {
 
         if (!nombre.isEmpty() && !documento.isEmpty()) {
 
-                mDialog.show();
-                register(nombre, documento);
+
+
+
+               //register(nombre, documento);
         } else {
             Toast.makeText(this, "Debe ingresar todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
 
-    void register(final String nombre, final String  documento) {
+    /*void register(final String nombre, final String  documento) {
+        String pruebasa = HijoDAO.getKeyHijo().toString();
+        Log.d("prueba", pruebasa);
+        HijoDAO.getInstance().crearHijo();
+
 
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -81,11 +88,11 @@ public class AltaHijoActivity extends AppCompatActivity {
         mHijoProvider.update(hijo).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                mProgressDialog.dismiss();
+                //mProgressDialog.dismiss();
                 Toast.makeText(AltaHijoActivity.this, "La informacion se actualizo correctamente", Toast.LENGTH_SHORT).show();
             }
         });
         //saveUser(id, nombre,email);
-    }
+    }*/
 
 }
