@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -38,8 +39,16 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         documentoPaciente = PantallaUsuarioActivity.devolverDocumento();
         mtxViewNombrPaciente.setText(nombrePaciente);
         mTxViewDocumentoPaciente.setText(documentoPaciente);
-         mBtnVacunas = findViewById(R.id.btnVacunas);
+        mBtnVacunas = findViewById(R.id.btnVacunas);
         mAuthProvider = new AuthProvider();
+
+        mBtnVacunas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ConsultarEspecialidadesActivity.this, VacunasActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

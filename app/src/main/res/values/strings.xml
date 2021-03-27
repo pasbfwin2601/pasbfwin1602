@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Creciendo Juntos</string>
+    <string name="nombre">Pablo Sayanes</string>
+    <string name="telefono">55557777</string>
+    <string name="email">psayanes@gmail.com</string>
+    <string name="pnombre">nombre</string>
+    <string name="ptelefono">telefono</string>
+    <string name="pemail">email</string>
+    <string name="nombreVacuna">Vacuna:</string>
+    <string name="documentoH">Documento:</string>
+    <string name="fechaDesde">Fecha vacuna:</string>
+    <string name="proximaDosis">Proxima dosis:</string>
+    <string name="pnombreVacuna">PVacuna:</string>
+    <string name="pdocumentoH">PDocumento:</string>
+    <string name="pfechaDesde">PFecha vacuna:</string>
+    <string name="pproximaDosis">PProxima dosis:</string>
+
 </resources>

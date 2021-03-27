@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nombre_contacto">33dp</dimen>
+    <dimen name="telefono">25dp</dimen>
+    <dimen name="texto_telefono">20sp</dimen>
+    <dimen name="email">25dp</dimen>
+    <dimen name="texto_email">20sp</dimen>
+    <dimen name="margin_top">20dp</dimen>
+    <dimen name="margin_left">10dp</dimen>
+    <dimen name="corner_radius_cardview">4dp</dimen>
+    <dimen name="nombre_card_view">20sp</dimen>
+    <dimen name="elevacion_actionbar">4dp</dimen>
+</resources>
