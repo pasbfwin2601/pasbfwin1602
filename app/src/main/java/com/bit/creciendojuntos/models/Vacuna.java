@@ -15,6 +15,9 @@ public class Vacuna {
         this.proximaDosis = proximaDosis;
     }
 
+    public Vacuna() {
+    }
+
     public String getId() {
         return id;
     }

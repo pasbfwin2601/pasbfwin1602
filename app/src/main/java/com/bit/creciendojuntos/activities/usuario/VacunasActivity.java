@@ -38,7 +38,7 @@ public class VacunasActivity extends AppCompatActivity {
     AuthProvider mAuthProvider;
     ArrayList<Vacuna> vacunas = new ArrayList<>();
     RecyclerView listaVacunas;
-    VacunaAdaptador adaptador;
+    VacunaAdaptador adaptadorVacuna;
     String id;
     String fechaDesde;
     String nombreVacuna;
@@ -66,12 +66,12 @@ public class VacunasActivity extends AppCompatActivity {
         listaVacunas.setLayoutManager(glm);
 
         inicializarListaVacunas(documentoHijo);
-        inicializarAdaptador();
+        //inicializarAdaptador();
     }
 
     public void inicializarAdaptador() {
-        adaptador = new VacunaAdaptador(vacunas);
-        listaVacunas.setAdapter(adaptador);
+        adaptadorVacuna = new VacunaAdaptador(vacunas, R.layout.cardview_vacuna);
+        listaVacunas.setAdapter(adaptadorVacuna);
 
     }
 
@@ -80,7 +80,8 @@ public class VacunasActivity extends AppCompatActivity {
 
         Query childRef = FirebaseDatabase.getInstance().getReference().child("Users").child("vacuna").orderByChild("documentoH").equalTo(docuH);
 
-        childRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        childRef.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                if (dataSnapshot.exists()) {
@@ -90,22 +91,8 @@ public class VacunasActivity extends AppCompatActivity {
                         proximaDosis = ds.child("proximaDosis").getValue().toString();
                        nombreVacuna = ds.child("nombreVacuna").getValue().toString();
                        vacunas.add(new Vacuna(id,nombreVacuna,fechaDesde,proximaDosis));
-                      //Log.e("nombre vacuna","nombre vacuna"+nombreVacuna);
                     }
-
-                   arrayAdapter=new ArrayAdapter<>(VacunasActivity.this, android.R.layout.simple_dropdown_item_1line, vacunas);
-
-                  for (int i = 0; i < arrayAdapter.getCount(); i++) {
-                      Vacuna va2 = arrayAdapter.getItem(i);
-                      String nombreVac1 = va2.getNombreVacuna();;
-                      String fechaVac1 = va2.getFechaDesde();
-                      String proximaV1 = va2.getProximaDosis();
-
-                      Log.e("nombre vacuna va1","nombre vacunava1 "+nombreVac1+ " fecha desdeva1 "+fechaVac1+" proxima dosis va1 "+proximaV1);
-
-                  }
-
-
+                   inicializarAdaptador();
                }
             }
             @Override
@@ -115,9 +102,4 @@ public class VacunasActivity extends AppCompatActivity {
         });
 
     }
-
-
-
-
-
 }

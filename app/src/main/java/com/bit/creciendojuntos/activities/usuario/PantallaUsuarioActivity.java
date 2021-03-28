@@ -3,6 +3,7 @@ package com.bit.creciendojuntos.activities.usuario;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -194,6 +196,10 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
                                 mTxViewDocumentoPadre.setText(documentoPadre);
                                 encontroHijos = true;
                                 mBtnConsultarEspecialidades.setVisibility(View.VISIBLE);
+                                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                                imm.hideSoftInputFromWindow(mBtnConsultarEspecialidades.getWindowToken(), 0);
+
+
                             }
 
                             if (hijoActual == cantHijos){

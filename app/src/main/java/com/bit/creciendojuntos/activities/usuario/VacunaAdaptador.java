@@ -17,28 +17,27 @@ import java.util.ArrayList;
 
 public class VacunaAdaptador extends RecyclerView.Adapter<VacunaAdaptador.VacunaViewHolder> {
 
+    private int resource;
     ArrayList<Vacuna> vacunas;
 
 
-    public VacunaAdaptador(ArrayList<Vacuna> vacunas) {
+    public VacunaAdaptador(ArrayList<Vacuna> vacunas,int resource) {
         this.vacunas = vacunas;
+        this.resource = resource;
     }
 
     @NonNull
     @Override
-    public VacunaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_vacuna, parent, false);
-        return new VacunaViewHolder(v);
+    public VacunaViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(resource, viewGroup, false);
+        return new VacunaViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VacunaViewHolder vacunaViewHolder, int position) {
-        Vacuna vacuna = vacunas.get(position);
-        
+    public void onBindViewHolder(@NonNull VacunaViewHolder vacunaViewHolder, int index) {
+        Vacuna vacuna = vacunas.get(index);
 
-        Log.e("PNnombre vacuna","PNnombre vacuna"+vacuna.getNombreVacuna());
-        Log.e("PFfecha desde","PFfecha desde"+vacuna.getFechaDesde());
-        Log.e("PPProximaDosis","PPProximaDosis"+vacuna.getProximaDosis());
         vacunaViewHolder.tvPNombreVacunaCV.setText(vacuna.getNombreVacuna());
         vacunaViewHolder.tvPFechaDesdeCV.setText(vacuna.getFechaDesde());
         vacunaViewHolder.tvPProximaDosisCV.setText(vacuna.getProximaDosis());
@@ -49,17 +48,21 @@ public class VacunaAdaptador extends RecyclerView.Adapter<VacunaAdaptador.Vacuna
         return vacunas.size();
     }
 
-    public static class VacunaViewHolder extends RecyclerView.ViewHolder{
+
+    public class VacunaViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tvPNombreVacunaCV;
         private TextView tvPFechaDesdeCV;
         private TextView tvPProximaDosisCV;
+        public View view;
 
-        public VacunaViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvPNombreVacunaCV = itemView.findViewById(R.id.tvPNombreVacunaCV);
-            tvPFechaDesdeCV = itemView.findViewById(R.id.tvPFechaDesde);
-            tvPProximaDosisCV = itemView.findViewById(R.id.tvPProximaDosis);
+
+        public VacunaViewHolder(View view) {
+            super(view);
+            this.view = view;
+            this.tvPNombreVacunaCV = view.findViewById(R.id.tvPNombreVacunaCV);
+            this.tvPFechaDesdeCV = view.findViewById(R.id.tvPFechaDesde);
+            this.tvPProximaDosisCV =view.findViewById(R.id.tvPProximaDosis);
         }
     }
 
