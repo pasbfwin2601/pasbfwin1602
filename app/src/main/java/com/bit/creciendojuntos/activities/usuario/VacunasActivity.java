@@ -43,7 +43,6 @@ public class VacunasActivity extends AppCompatActivity {
     String fechaDesde;
     String nombreVacuna;
     String proximaDosis;
-    ArrayAdapter<Vacuna> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,17 +65,15 @@ public class VacunasActivity extends AppCompatActivity {
         listaVacunas.setLayoutManager(glm);
 
         inicializarListaVacunas(documentoHijo);
-        //inicializarAdaptador();
+
     }
 
     public void inicializarAdaptador() {
         adaptadorVacuna = new VacunaAdaptador(vacunas, R.layout.cardview_vacuna);
         listaVacunas.setAdapter(adaptadorVacuna);
-
     }
 
     public void inicializarListaVacunas(String docuH){
-
 
         Query childRef = FirebaseDatabase.getInstance().getReference().child("Users").child("vacuna").orderByChild("documentoH").equalTo(docuH);
 

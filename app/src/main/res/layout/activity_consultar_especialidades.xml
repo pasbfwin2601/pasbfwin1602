@@ -24,6 +24,12 @@ tools:context=".activities.usuario.ConsultarEspecialidadesActivity">
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
+    @+id/txViewNombrPaciente
+
+    @+id/txViewDocumentoPaciente
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,11 +37,14 @@ tools:context=".activities.usuario.ConsultarEspecialidadesActivity">
         android:orientation="vertical"
         android:layout_gravity="center_horizontal">
 
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -43,42 +52,39 @@ tools:context=".activities.usuario.ConsultarEspecialidadesActivity">
                     android:layout_gravity="center"
                     android:textSize="20sp"
                     android:text="Paciente: "
-                    android:textStyle="bold">
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp">
                 </TextView>
 
-
-            <TextView
-                android:id="@+id/txViewNombrPaciente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold">
-            </TextView>
-        </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/txViewNombrPaciente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Paciente"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="4dp">
+                </TextView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
-                    android:text="Documento: "
-                    android:textStyle="bold">
+                    android:textSize="18sp"
+                    android:text="-"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp">
+                </TextView>
+                <TextView
+                    android:id="@+id/txViewDocumentoPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"
+                    android:text="Documen">
                 </TextView>
 
-            <TextView
-                android:id="@+id/txViewDocumentoPaciente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-               android:textSize="20sp"
-                android:layout_gravity="center">
-            </TextView>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -86,8 +92,25 @@ tools:context=".activities.usuario.ConsultarEspecialidadesActivity">
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btnOculista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/color_blue_button"
+            android:text="Historial Oftalmológico"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            style="?android:attr/borderlessButtonStyle"/>
 
 
         <Button

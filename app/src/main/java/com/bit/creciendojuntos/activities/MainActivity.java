@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mPref = getApplicationContext().getSharedPreferences("typeUser",MODE_PRIVATE);
         final SharedPreferences.Editor editor = mPref.edit();
 
-        MyToolbar.show(this,"Menú de Inicio",false);
+        MyToolbar.show(this,"             Carnét de Salud Digital",false);
 
         mButtonMedico = (Button) findViewById(R.id.btnMedico);
         mButtonUsuario = (Button) findViewById(R.id.btnUsuario);

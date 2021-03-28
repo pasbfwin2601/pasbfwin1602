@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
         <activity
+            android:name=".activities.usuario.OcularActivity"
+            android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
+        <activity
             android:name=".activities.usuario.VacunasActivity"
             android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
         <activity

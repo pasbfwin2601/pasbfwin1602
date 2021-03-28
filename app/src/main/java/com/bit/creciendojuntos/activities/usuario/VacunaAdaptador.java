@@ -26,14 +26,15 @@ public class VacunaAdaptador extends RecyclerView.Adapter<VacunaAdaptador.Vacuna
         this.resource = resource;
     }
 
+    //Metodo donde se crea la vista
     @NonNull
     @Override
     public VacunaViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(resource, viewGroup, false);
         return new VacunaViewHolder(view);
     }
 
+    //Metodo se definen los datos que se quieren mostrar en la vista
     @Override
     public void onBindViewHolder(@NonNull VacunaViewHolder vacunaViewHolder, int index) {
         Vacuna vacuna = vacunas.get(index);
@@ -43,6 +44,7 @@ public class VacunaAdaptador extends RecyclerView.Adapter<VacunaAdaptador.Vacuna
         vacunaViewHolder.tvPProximaDosisCV.setText(vacuna.getProximaDosis());
     }
 
+    //Funcion que devuelve el numero de vista - cantidad de vacunas que tiene arraylist
     @Override
     public int getItemCount() {
         return vacunas.size();
@@ -54,12 +56,12 @@ public class VacunaAdaptador extends RecyclerView.Adapter<VacunaAdaptador.Vacuna
         private TextView tvPNombreVacunaCV;
         private TextView tvPFechaDesdeCV;
         private TextView tvPProximaDosisCV;
-        public View view;
+        //public View view;
 
 
         public VacunaViewHolder(View view) {
             super(view);
-            this.view = view;
+          //  this.view = view;
             this.tvPNombreVacunaCV = view.findViewById(R.id.tvPNombreVacunaCV);
             this.tvPFechaDesdeCV = view.findViewById(R.id.tvPFechaDesde);
             this.tvPProximaDosisCV =view.findViewById(R.id.tvPProximaDosis);

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/cvVacuna"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="265dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:layout_centerHorizontal="true"
+    card_view:cardCornerRadius="4dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:text="Oculista: "
+            android:textStyle="bold"
+            android:layout_marginEnd="4dp"/>
+
+
+        <TextView
+            android:id="@+id/txViewNombreOculista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="nombre oculista"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAstigmatismoCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Astigmatismo:"
+                android:textSize="@dimen/nombre_card_view"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvPAstigmatismoCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Astigmatismo"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDiagnosticoOcularCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Diagnostico:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvPDiagnosticoOcularCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Diagnostico Oculista"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvFechaControlOcularCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Fecha Control:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvPFechaControlOcularCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="fecha visita"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvGraduacionODCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Graduacion OD:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp" />
+
+            <TextView
+                android:id="@+id/tvPGraduacionODCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="graduacion"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvGraduacionOICV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Graduacion OI:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvPGraduacionOICV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="graduacion"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvHipermetropiaCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Hipermetropia:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvPHipermetropiaCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="hipermetropia"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvProximoControlOcularCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Proximo Control:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvPProximoControlOcularCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="proximo control"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTratamientoOcularCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Tratamiento:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tvPTratamientoOcularCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="tratamiento"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

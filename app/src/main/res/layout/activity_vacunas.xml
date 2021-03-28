@@ -27,7 +27,8 @@ tools:context=".activities.usuario.VacunasActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal">
 
@@ -43,48 +44,45 @@ tools:context=".activities.usuario.VacunasActivity">
                 android:layout_gravity="center"
                 android:textSize="20sp"
                 android:text="Paciente: "
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp">
             </TextView>
 
 
             <TextView
                 android:id="@+id/txViewNombrPaciente"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold">
+                android:text="Paciente"
+                android:textSize="18sp">
             </TextView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="20sp"
-                android:text="Documento: "
-                android:textStyle="bold">
+                android:textSize="18sp"
+                android:text="-"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp">
             </TextView>
 
             <TextView
                 android:id="@+id/txViewDocumentoPaciente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_gravity="center">
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="Documen">
             </TextView>
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="440dp"
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -97,7 +95,7 @@ tools:context=".activities.usuario.VacunasActivity">
             android:id="@+id/rvVacunas"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:padding="16dp"
+            android:padding="5dp"
             android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
