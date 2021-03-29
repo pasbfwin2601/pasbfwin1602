@@ -27,6 +27,8 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
     TextView mTxViewDocumentoPaciente;
     Button mBtnVacunas;
     Button mBtnOculista;
+    Button mBtnDentista;
+    Button mBtnPediatra;
     AuthProvider mAuthProvider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         mTxViewDocumentoPaciente.setText(documentoPaciente);
         mBtnVacunas = findViewById(R.id.btnVacunas);
         mBtnOculista = findViewById(R.id.btnOculista);
+        mBtnDentista = findViewById(R.id.btnDentista);
+        mBtnPediatra = findViewById(R.id.btnPediatra);
         mAuthProvider = new AuthProvider();
 
         mBtnVacunas.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +64,21 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
             }
         });
 
+        mBtnDentista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ConsultarEspecialidadesActivity.this, DentistaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnPediatra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ConsultarEspecialidadesActivity.this, PediatraActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

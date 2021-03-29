@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
         <activity
+            android:name=".activities.usuario.PediatraActivity"
+            android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity"/>
+        <activity
+            android:name=".activities.usuario.DentistaActivity"
+            android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
+        <activity
             android:name=".activities.usuario.OcularActivity"
             android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
         <activity

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.models.Ocular;
-import com.bit.creciendojuntos.models.Vacuna;
 
 import java.util.ArrayList;
 
@@ -42,9 +41,9 @@ public class OcularAdaptador extends RecyclerView.Adapter<OcularAdaptador.Ocular
         ocularViewHolder.tvPDiagnosticoOcularCV.setText(ocular.getDiagnostico());
         ocularViewHolder.tvPFechaControlOcularCV.setText(ocular.getFechaControl());
         ocularViewHolder.tvPGraduacionODCV.setText(ocular.getGraduacionOD());
-        ocularViewHolder.tvPGraduacionOICV.setText(ocular. getGraduacionOI());
+        ocularViewHolder.tvPGraduacionOICV.setText(ocular.getGraduacionOI());
         ocularViewHolder.tvPHipermetropiaCV.setText(ocular.getHipermetropia());
-        ocularViewHolder.tvPProximoControlOcularCV.setText(ocular. getProximoControl());
+        ocularViewHolder.tvPProximoControlOcularCV.setText(ocular.getProximoControl());
         ocularViewHolder.tvPTratamientoOcularCV.setText(ocular.getTratamiento());
 
     }
@@ -81,12 +80,6 @@ public class OcularAdaptador extends RecyclerView.Adapter<OcularAdaptador.Ocular
             this.tvPHipermetropiaCV = view.findViewById(R.id.tvPHipermetropiaCV);
             this.tvPProximoControlOcularCV = view.findViewById(R.id.tvPProximoControlOcularCV);
             this.tvPTratamientoOcularCV = view.findViewById(R.id.tvPTratamientoOcularCV);
-
-
-
-
-
-
         }
     }
 }

@@ -124,6 +124,5 @@ public class OcularActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }
