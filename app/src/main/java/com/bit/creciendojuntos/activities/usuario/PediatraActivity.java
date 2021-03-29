@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 import static com.bit.creciendojuntos.activities.usuario.PantallaUsuarioActivity.documentoHijo;
 
+//Comentario en clase PediatraActivity
 public class PediatraActivity extends AppCompatActivity {
 
     String nombrePacientePD;
