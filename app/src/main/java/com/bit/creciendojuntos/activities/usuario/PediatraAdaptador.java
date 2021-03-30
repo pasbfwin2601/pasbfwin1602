@@ -1,5 +1,7 @@
 package com.bit.creciendojuntos.activities.usuario;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,11 @@ import com.bit.creciendojuntos.models.Dentista;
 import com.bit.creciendojuntos.models.Pediatra;
 
 import java.util.ArrayList;
+
+import static android.graphics.Color.BLUE;
+import static android.graphics.Color.GREEN;
+import static android.graphics.Color.RED;
+import static android.graphics.Color.YELLOW;
 
 public class PediatraAdaptador extends RecyclerView.Adapter<PediatraAdaptador.PediatraViewHolder> {
 
@@ -43,6 +50,20 @@ public class PediatraAdaptador extends RecyclerView.Adapter<PediatraAdaptador.Pe
         pediatraViewHolder.tvPPesoCV.setText(pediatra.getPeso());
         pediatraViewHolder.tvPTallaCV.setText(pediatra.getTalla());
         pediatraViewHolder.tvPImcCV.setText(pediatra.getImc());
+        pediatraViewHolder.tvPRangoPesoCV.setText(pediatra.getRangoPeso());
+        if (pediatra.getRangoPeso().equals("Peso Normal")){
+            pediatraViewHolder.tvPRangoPesoCV.setTypeface(pediatraViewHolder.tvPRangoPesoCV.getTypeface(), Typeface.BOLD);
+            pediatraViewHolder.tvPRangoPesoCV.setTextColor(Color.parseColor("#008F39"));
+        } else if (pediatra.getRangoPeso().equals("Bajo Peso")){
+            pediatraViewHolder.tvPRangoPesoCV.setTypeface(pediatraViewHolder.tvPRangoPesoCV.getTypeface(), Typeface.BOLD);
+            pediatraViewHolder.tvPRangoPesoCV.setTextColor(Color.parseColor("#1B4F8F"));
+        } else if (pediatra.getRangoPeso().equals("Sobre Peso")){
+            pediatraViewHolder.tvPRangoPesoCV.setTypeface(pediatraViewHolder.tvPRangoPesoCV.getTypeface(), Typeface.BOLD);
+            pediatraViewHolder.tvPRangoPesoCV.setTextColor(Color.parseColor("#FF8000"));
+        }else if (pediatra.getRangoPeso().equals("Obesidad")){
+            pediatraViewHolder.tvPRangoPesoCV.setTypeface(pediatraViewHolder.tvPRangoPesoCV.getTypeface(), Typeface.BOLD);
+            pediatraViewHolder.tvPRangoPesoCV.setTextColor(Color.parseColor("#800040"));
+        }
         pediatraViewHolder.tvPAptitudCV.setText(pediatra. getAptitudFisica());
         pediatraViewHolder.tvPProximoControlCV.setText(pediatra.getProximoControl());
     }
@@ -61,6 +82,7 @@ public class PediatraAdaptador extends RecyclerView.Adapter<PediatraAdaptador.Pe
         TextView tvPPesoCV;
         TextView tvPTallaCV;
         TextView tvPImcCV;
+        TextView tvPRangoPesoCV;
         TextView tvPAptitudCV;
         TextView tvPProximoControlCV;
         //public View view;
@@ -75,6 +97,7 @@ public class PediatraAdaptador extends RecyclerView.Adapter<PediatraAdaptador.Pe
             this.tvPPesoCV = view.findViewById(R.id.tvPPesoCV);
             this.tvPTallaCV = view.findViewById(R.id.tvPTallaCV);
             this.tvPImcCV = view.findViewById(R.id.tvPImcCV);
+            this.tvPRangoPesoCV = view.findViewById(R.id.tvPRangoPesoCV);
             this.tvPAptitudCV = view.findViewById(R.id.tvPAptitudCV);
             this.tvPProximoControlCV = view.findViewById(R.id.tvPProximoControlCV);
 

@@ -9,13 +9,14 @@ public class Pediatra {
     String peso;
     String talla;
     String imc;
+    String rangoPeso;
     String aptitudFisica;
     String proximoControl;
 
     public Pediatra() {
     }
 
-    public Pediatra(String id, String nombrePediatra, String fechaPediatra, String presion, String peso, String talla, String imc, String aptitudFisica, String proximoControl) {
+    public Pediatra(String id, String nombrePediatra, String fechaPediatra, String presion, String peso, String talla, String imc, String rangoPeso, String aptitudFisica, String proximoControl) {
         this.id = id;
         this.nombrePediatra = nombrePediatra;
         this.fechaPediatra = fechaPediatra;
@@ -23,6 +24,7 @@ public class Pediatra {
         this.peso = peso;
         this.talla = talla;
         this.imc = imc;
+        this.rangoPeso = rangoPeso;
         this.aptitudFisica = aptitudFisica;
         this.proximoControl = proximoControl;
     }
@@ -81,6 +83,14 @@ public class Pediatra {
 
     public void setImc(String imc) {
         this.imc = imc;
+    }
+
+    public String getRangoPeso() {
+        return rangoPeso;
+    }
+
+    public void setRangoPeso(String rangoPeso) {
+        this.rangoPeso = rangoPeso;
     }
 
     public String getAptitudFisica() {

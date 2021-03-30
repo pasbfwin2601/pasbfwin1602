@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -35,6 +36,7 @@ public class PediatraActivity extends AppCompatActivity {
     String pesoCV;
     String tallaCV;
     String imcCV;
+    String rangoPesoCV;
     String aptitudCV;
     String proximoControlCV;
 
@@ -46,6 +48,7 @@ public class PediatraActivity extends AppCompatActivity {
     TextView mtvPPesoCV;
     TextView mtvPTallaCV;
     TextView mtvPImcCV;
+    TextView mtvPRangoPesoCV;
     TextView mtvPAptitudCV;
     TextView mtvPProximoControlCV;
 
@@ -69,6 +72,7 @@ public class PediatraActivity extends AppCompatActivity {
         mtvPPesoCV = findViewById(R.id.tvPPesoCV);
         mtvPTallaCV = findViewById(R.id.tvPTallaCV);
         mtvPImcCV = findViewById(R.id.tvPImcCV);
+        mtvPRangoPesoCV = findViewById(R.id.tvPRangoPesoCV);
         mtvPAptitudCV = findViewById(R.id.tvPAptitudCV);
         mtvPProximoControlCV = findViewById(R.id.tvPProximoControlCV);
 
@@ -107,10 +111,21 @@ public class PediatraActivity extends AppCompatActivity {
                         fechaPediatraCV = ds.child("fechaPediatra").getValue().toString();
                         tallaCV = ds.child("talla").getValue().toString();
                         proximoControlCV = ds.child("proximoControl").getValue().toString();
-                        imcCV = ds.child("imc").getValue().toString();
+                        imcCV = String.valueOf(Math.round((Double.parseDouble(pesoCV) / (Double.parseDouble(tallaCV) * Double.parseDouble(tallaCV)))*100.0)/100.0);
+                        //imcCV = ds.child("imc").getValue().toString();
+                        if ((Math.round((Double.parseDouble(pesoCV) * (Double.parseDouble(tallaCV) * Double.parseDouble(tallaCV)))*100.0)/100.0)<18.5){
+                            rangoPesoCV = "Bajo Peso";
+                        } else if ((Math.round((Double.parseDouble(pesoCV) * (Double.parseDouble(tallaCV) * Double.parseDouble(tallaCV)))*100.0)/100.0)>=18.5 && (Math.round((Double.parseDouble(pesoCV) * (Double.parseDouble(tallaCV) * Double.parseDouble(tallaCV)))*100.0)/100.0)<25){
+                            rangoPesoCV = "Peso Normal";
+                        } else if ((Math.round((Double.parseDouble(pesoCV) * (Double.parseDouble(tallaCV) * Double.parseDouble(tallaCV)))*100.0)/100.0)>=25 && (Math.round((Double.parseDouble(pesoCV) * (Double.parseDouble(tallaCV) * Double.parseDouble(tallaCV)))*100.0)/100.0)<30) {
+                            rangoPesoCV = "Sobre Peso";
+                        } else if ((Math.round((Double.parseDouble(pesoCV) * (Double.parseDouble(tallaCV) * Double.parseDouble(tallaCV)))*100.0)/100.0)>=30) {;
+                            rangoPesoCV = "Obesidad";
+                        }
+                        //rangoPesoCV = String.valueOf(Math.round((Double.parseDouble(pesoCV) * (Double.parseDouble(tallaCV) * Double.parseDouble(tallaCV)))*100.0)/100.0);
                         aptitudCV = ds.child("aptitudFisica").getValue().toString();
 
-                        pediatras.add(new Pediatra(id, nombrePediatraCV, fechaPediatraCV, presionCV, pesoCV, tallaCV, imcCV, aptitudCV,proximoControlCV));
+                        pediatras.add(new Pediatra(id, nombrePediatraCV, fechaPediatraCV, presionCV, pesoCV, tallaCV, imcCV, rangoPesoCV,aptitudCV,proximoControlCV));
                     }
                     inicializarAdaptador();
                 }
