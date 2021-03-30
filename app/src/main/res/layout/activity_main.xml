@@ -32,8 +32,16 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="580dp"
-                android:src="@drawable/logo2"
+                android:layout_height="100dp"
+                android:src="@drawable/creciendojuntoslogosolo"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="460dp"
+                android:src="@drawable/logo_creciendo"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>

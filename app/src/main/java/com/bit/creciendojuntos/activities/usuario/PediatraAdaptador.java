@@ -60,7 +60,7 @@ public class PediatraAdaptador extends RecyclerView.Adapter<PediatraAdaptador.Pe
         } else if (pediatra.getRangoPeso().equals("Sobre Peso")){
             pediatraViewHolder.tvPRangoPesoCV.setTypeface(pediatraViewHolder.tvPRangoPesoCV.getTypeface(), Typeface.BOLD);
             pediatraViewHolder.tvPRangoPesoCV.setTextColor(Color.parseColor("#FF8000"));
-        }else if (pediatra.getRangoPeso().equals("Obesidad")){
+        } else if (pediatra.getRangoPeso().equals("Obesidad")){
             pediatraViewHolder.tvPRangoPesoCV.setTypeface(pediatraViewHolder.tvPRangoPesoCV.getTypeface(), Typeface.BOLD);
             pediatraViewHolder.tvPRangoPesoCV.setTextColor(Color.parseColor("#800040"));
         }

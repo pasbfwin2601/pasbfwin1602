@@ -16,10 +16,19 @@
         android:orientation="vertical"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:src="@drawable/creciendojuntos"
+            android:src="@drawable/creciendojuntoslogosolo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:src="@drawable/logo_creciendo"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
@@ -28,7 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="20dp">
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp">
 
             <ImageView
                 android:layout_width="35dp"
@@ -57,7 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="20dp">
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp">
 
             <ImageView
                 android:layout_width="40dp"
@@ -84,9 +95,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:orientation="vertical"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:gravity="bottom">
 
             <Button
@@ -97,10 +109,8 @@
                 android:backgroundTint="@color/color_blue_button"
                 android:text="Ingresar"
                 android:textSize="20dp"
-                android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginBottom="30dp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 style="?android:attr/borderlessButtonStyle"/>
