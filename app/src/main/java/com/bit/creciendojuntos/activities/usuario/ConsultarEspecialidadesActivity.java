@@ -3,6 +3,8 @@ package com.bit.creciendojuntos.activities.usuario;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,13 +12,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.activities.MainActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
+import com.bit.creciendojuntos.models.Consulta;
 import com.bit.creciendojuntos.models.Hijo;
 import com.bit.creciendojuntos.providers.AuthProvider;
+import com.bit.creciendojuntos.providers.ConsultaProvider;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.Date;
 
 public class ConsultarEspecialidadesActivity extends AppCompatActivity {
 
@@ -30,6 +43,10 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
     Button mBtnDentista;
     Button mBtnPediatra;
     AuthProvider mAuthProvider;
+    FloatingActionButton mfabConsulta;
+    ConsultaProvider mConsultaProvider;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +64,16 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         mBtnDentista = findViewById(R.id.btnDentista);
         mBtnPediatra = findViewById(R.id.btnPediatra);
         mAuthProvider = new AuthProvider();
+        mfabConsulta = findViewById(R.id.fabConsulta);
+        mConsultaProvider = new ConsultaProvider();
 
+        mfabConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialogComment();
+
+            }
+        });
         mBtnVacunas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +107,70 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         });
 
     }
+
+    private void showDialogComment() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(ConsultarEspecialidadesActivity.this);
+        alert.setTitle("Solicitar una Consulta");
+        ///alert.setMessage("Selecciona Fecha:");
+        final EditText editText = new EditText(ConsultarEspecialidadesActivity.this);
+        editText.setHint("Ingrese: dd/mm/aaaa");
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(50,50,50,50);
+        editText.setLayoutParams(params);
+        RelativeLayout container = new RelativeLayout(ConsultarEspecialidadesActivity.this);
+        RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
+        );
+
+        container.setLayoutParams(relativeParams);
+        container.addView(editText);
+
+        alert.setView(container);
+
+        alert.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String value = editText.getText().toString();
+                if (!value.isEmpty()) {
+                    createConsulta(value);
+                } else {
+                    Toast.makeText(ConsultarEspecialidadesActivity.this, "Debe ingresar la fecha de la consulta", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        alert.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        alert.show();
+    }
+
+    private void createConsulta(String value) {
+        Consulta consulta = new Consulta();
+        consulta.setId(mAuthProvider.getId());
+        consulta.setFechaConsulta(value);
+        consulta.setDocumentoH(documentoPaciente);
+        mConsultaProvider.create(consulta).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(ConsultarEspecialidadesActivity.this, "La consulta se registro correctamente", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ConsultarEspecialidadesActivity.this, "No se pudo registrar la consulta", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

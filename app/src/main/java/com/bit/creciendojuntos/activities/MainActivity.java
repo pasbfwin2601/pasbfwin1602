@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonUsuario = (Button) findViewById(R.id.btnUsuario);
         mTokenProvider = new TokenProvider();
         mAuthProvider = new AuthProvider();
-        createToken();
+        //createToken();
         
         mButtonMedico.setOnClickListener(new View.OnClickListener() {
             @Override

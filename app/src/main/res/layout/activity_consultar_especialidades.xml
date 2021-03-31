@@ -160,6 +160,17 @@ tools:context=".activities.usuario.ConsultarEspecialidadesActivity">
             android:textAllCaps="false"
             android:textColor="@color/white"
             style="?android:attr/borderlessButtonStyle"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabConsulta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_input_add"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/purple_700"
+            app:fabSize="auto"
+            app:maxImageSize="84dp"/>
     </LinearLayout>
 </LinearLayout>
 
