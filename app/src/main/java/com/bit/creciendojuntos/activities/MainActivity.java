@@ -12,12 +12,16 @@ import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.activities.medico.PantallaMedicoActivity;
 import com.bit.creciendojuntos.activities.usuario.PantallaUsuarioActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
+import com.bit.creciendojuntos.providers.AuthProvider;
+import com.bit.creciendojuntos.providers.TokenProvider;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mButtonMedico;
     private Button mButtonUsuario;
+    TokenProvider mTokenProvider;
+    AuthProvider mAuthProvider;
 
     SharedPreferences mPref;
 
@@ -32,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         mButtonMedico = (Button) findViewById(R.id.btnMedico);
         mButtonUsuario = (Button) findViewById(R.id.btnUsuario);
+        mTokenProvider = new TokenProvider();
+        mAuthProvider = new AuthProvider();
+        createToken();
         
         mButtonMedico.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,5 +82,10 @@ public class MainActivity extends AppCompatActivity {
     private void goToSelectAuth() {
         Intent intent = new Intent(MainActivity.this, SelectOptionAuthActivity.class);
         startActivity(intent);
+    }
+
+    private void createToken(){
+        //deberia ser getuid
+        mTokenProvider.create(mAuthProvider.getId());
     }
 }
