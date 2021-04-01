@@ -25,9 +25,16 @@ import com.bit.creciendojuntos.models.Consulta;
 import com.bit.creciendojuntos.models.Hijo;
 import com.bit.creciendojuntos.providers.AuthProvider;
 import com.bit.creciendojuntos.providers.ConsultaProvider;
+import com.bit.creciendojuntos.providers.NotificationProvider;
+import com.bit.creciendojuntos.providers.TokenProvider;
+import com.bit.creciendojuntos.providers.UsuarioProvider;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.Date;
 
@@ -45,6 +52,11 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
     AuthProvider mAuthProvider;
     FloatingActionButton mfabConsulta;
     ConsultaProvider mConsultaProvider;
+    NotificationProvider mNotificationProvider;
+    TokenProvider mTokenProvider;
+    String mExtraConsultaId;
+    String mIdUser;
+    UsuarioProvider mUsuarioProvider;
 
 
     @Override
@@ -66,12 +78,15 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         mAuthProvider = new AuthProvider();
         mfabConsulta = findViewById(R.id.fabConsulta);
         mConsultaProvider = new ConsultaProvider();
+        mNotificationProvider = new NotificationProvider();
+        mTokenProvider = new TokenProvider();
+        mExtraConsultaId = getIntent().getStringExtra("id");
+
 
         mfabConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialogComment();
-
             }
         });
         mBtnVacunas.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +122,7 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         });
 
     }
+
 
     private void showDialogComment() {
         AlertDialog.Builder alert = new AlertDialog.Builder(ConsultarEspecialidadesActivity.this);
@@ -154,21 +170,23 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         alert.show();
     }
 
-    private void createConsulta(String value) {
+    private void createConsulta(final String value) {
         Consulta consulta = new Consulta();
         consulta.setId(mAuthProvider.getId());
         consulta.setFechaConsulta(value);
         consulta.setDocumentoH(documentoPaciente);
-        mConsultaProvider.create(consulta).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
+        mConsultaProvider.create(consulta).addOnCompleteListener((task) -> {
+                if (task.isSuccessful()) {
+                    sendNotificacion(value);
                     Toast.makeText(ConsultarEspecialidadesActivity.this, "La consulta se registro correctamente", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(ConsultarEspecialidadesActivity.this, "No se pudo registrar la consulta", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
+                });
+    }
+
+    private void sendNotificacion(String consulta) {
+       // mTokenProvider.getToken()
     }
 
 
@@ -199,4 +217,8 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+
+
 }

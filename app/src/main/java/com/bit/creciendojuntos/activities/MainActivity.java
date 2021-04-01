@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mButtonMedico;
     private Button mButtonUsuario;
-    TokenProvider mTokenProvider;
+
     AuthProvider mAuthProvider;
 
     SharedPreferences mPref;
@@ -36,9 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         mButtonMedico = (Button) findViewById(R.id.btnMedico);
         mButtonUsuario = (Button) findViewById(R.id.btnUsuario);
-        mTokenProvider = new TokenProvider();
         mAuthProvider = new AuthProvider();
-        createToken();
+
         
         mButtonMedico.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +83,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void createToken(){
-        //deberia ser getuid
-        mTokenProvider.create(mAuthProvider.getId());
-    }
+
 }

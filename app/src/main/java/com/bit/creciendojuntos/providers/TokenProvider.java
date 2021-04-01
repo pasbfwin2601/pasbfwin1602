@@ -1,37 +1,36 @@
 package com.bit.creciendojuntos.providers;
 
 import com.bit.creciendojuntos.models.Token;
+import com.bit.creciendojuntos.models.Usuario;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
+
 public class TokenProvider {
 
-    CollectionReference mCollection;
+    Usuario usuario;
+    DatabaseReference mDatabase;
+
 
     public TokenProvider() {
-        mCollection = FirebaseFirestore.getInstance().collection("Tokens");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Tokens");
     }
 
-    public void create(final String idUser){
-        if (idUser == null) {
-            return;
-        }
+    public void create(String idPadre){
+
         FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
                 Token token = new Token(instanceIdResult.getToken());
-                mCollection.document(idUser).set(token);
+                mDatabase.child(idPadre).setValue(token);
             }
         });
+
     }
 
-    public Task<DocumentSnapshot> getToken(String idUser) {
-        return mCollection.document(idUser).get();
-    }
 
 }

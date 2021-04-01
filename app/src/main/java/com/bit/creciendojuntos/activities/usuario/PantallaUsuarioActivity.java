@@ -22,6 +22,7 @@ import com.bit.creciendojuntos.activities.MainActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.models.Hijo;
 import com.bit.creciendojuntos.providers.AuthProvider;
+import com.bit.creciendojuntos.providers.TokenProvider;
 import com.bit.creciendojuntos.providers.UsuarioProvider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
@@ -48,6 +49,8 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
      TextView mTxViewNombrePadre;
      String documentoPadre;
      String nombrePadre;
+     String idPadre;
+     TokenProvider mTokenProvider;
 
      boolean encontroHijos;
      long cantHijos, hijoActual;
@@ -74,6 +77,8 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
         mTxViewNombrePadre =  findViewById(R.id.txViewNombrePadre);
         mRootReference = FirebaseDatabase.getInstance().getReference();
         getUsuarioInfo();
+        mTokenProvider = new TokenProvider();
+
         mTextInputDocHBuscar.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
                 if (s.toString().length() > 0) {
@@ -141,12 +146,13 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+                    idPadre = mAuthProvider.getId();
                     documentoPadre = dataSnapshot.child("documento").getValue().toString();
                     nombrePadre = dataSnapshot.child("nombre").getValue().toString();
                     mTxViewDocumentoPadre.setText(documentoPadre);
                     mTxViewNombrePadre.setText(nombrePadre);
+                    generateToken(idPadre);
                 }
-
             }
 
             @Override
@@ -239,4 +245,9 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
     public static String devolverClave(){
         return claveHijo;
     }
+
+    private void generateToken(String idPadre){
+        mTokenProvider.create(idPadre);
+    }
+
 }
