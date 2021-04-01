@@ -15,11 +15,20 @@ import com.bit.creciendojuntos.activities.usuario.InfoUsuarioActivity;
 import com.bit.creciendojuntos.activities.MainActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.providers.AuthProvider;
+import com.bit.creciendojuntos.providers.MedicoProvider;
+import com.bit.creciendojuntos.providers.TokenProvider;
+import com.bit.creciendojuntos.providers.UsuarioProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class PantallaMedicoActivity extends AppCompatActivity {
 
     Button mButtonLogoutM;
     AuthProvider mAuthProvider;
+    TokenProvider mTokenProvider;
+    MedicoProvider mMedicoProvider;
+    String idMedico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +41,9 @@ public class PantallaMedicoActivity extends AppCompatActivity {
         // Boton para salir de la sesion de medico
         mButtonLogoutM = (Button) findViewById(R.id.btnLogoutM);
         mAuthProvider = new AuthProvider();
+        mMedicoProvider = new MedicoProvider();
+        getMedicoInfo();
+        mTokenProvider = new TokenProvider();
 
         mButtonLogoutM.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,5 +82,27 @@ public class PantallaMedicoActivity extends AppCompatActivity {
         Intent intent = new Intent(PantallaMedicoActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void getMedicoInfo() {
+        mMedicoProvider.getMedico(mAuthProvider.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    idMedico = mAuthProvider.getId();
+                    generateToken(idMedico);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    private void generateToken(String idMedico){
+        mTokenProvider.create(idMedico);
     }
 }
