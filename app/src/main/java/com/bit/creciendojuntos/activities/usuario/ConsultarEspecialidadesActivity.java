@@ -2,10 +2,16 @@ package com.bit.creciendojuntos.activities.usuario;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -49,8 +56,12 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
     Button mBtnOculista;
     Button mBtnDentista;
     Button mBtnPediatra;
+    FloatingActionButton mfabLlamar;
+    FloatingActionButton mfabEmail;
+    FloatingActionButton mfabWhatapp;
     AuthProvider mAuthProvider;
-    FloatingActionButton mfabConsulta;
+    //FloatingActionButton mfabConsulta;
+    FloatingActionButton mfabQRCode;
     ConsultaProvider mConsultaProvider;
     NotificationProvider mNotificationProvider;
     TokenProvider mTokenProvider;
@@ -75,20 +86,88 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         mBtnOculista = findViewById(R.id.btnOculista);
         mBtnDentista = findViewById(R.id.btnDentista);
         mBtnPediatra = findViewById(R.id.btnPediatra);
+        mfabLlamar = findViewById(R.id.fabLlamar);
+        mfabEmail = findViewById(R.id.fabEmail);
+        mfabWhatapp = findViewById(R.id.fabWhatapp);
         mAuthProvider = new AuthProvider();
-        mfabConsulta = findViewById(R.id.fabConsulta);
+        mfabQRCode = findViewById(R.id.fabQRCode);
+        //mfabConsulta = findViewById(R.id.fabConsulta);
         mConsultaProvider = new ConsultaProvider();
         mNotificationProvider = new NotificationProvider();
         mTokenProvider = new TokenProvider();
         mExtraConsultaId = getIntent().getStringExtra("id");
 
+        mfabLlamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int permiso = ContextCompat.checkSelfPermission(ConsultarEspecialidadesActivity.this, Manifest.permission.CALL_PHONE);
+                if (permiso != PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(ConsultarEspecialidadesActivity.this, "No tiene permiso para realizar la llamada", Toast.LENGTH_SHORT).show();
+                    ActivityCompat.requestPermissions(ConsultarEspecialidadesActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 255);
+                } else {
+                    String numero = "+59898615671";
+                    String inicio = "tel:"+numero;
+                    Intent intent = new Intent(Intent.ACTION_CALL);
+                    intent.setData(Uri.parse(inicio));
+                    startActivity(intent);
+                }
+            }
+        });
 
-        mfabConsulta.setOnClickListener(new View.OnClickListener() {
+        mfabQRCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConsultarEspecialidadesActivity.this, GeneradorqrActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*mfabConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialogComment();
             }
+        });*/
+
+        mfabWhatapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                /*Intent sendIntent = new Intent(); sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Mensaje a Whatsapp desde Android");
+                sendIntent.setType("text/plain");
+                sendIntent.setPackage("com.whatsapp");
+                startActivity(sendIntent);*/
+                String celular = "+59898615671";
+                String texto = "Mensaje a Whatsapp desde Android";
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_VIEW);
+                String uri = "whatsapp://send?phone="+celular+"&text="+texto;
+                sendIntent.setData(Uri.parse(uri));
+                startActivity(sendIntent);
+            }
         });
+
+        mfabEmail.setOnClickListener(new View.OnClickListener() {
+
+            @SuppressLint("IntentReset")
+            @Override
+            public void onClick(View view) {
+                String email = "federicoguillermomoreiratejera@gmail.com";
+                String asunto = "Asunto del email";
+                String texto = "Texto del email";
+                Intent emailIntent = new Intent((Intent.ACTION_SEND));
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, email);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, asunto);
+                emailIntent.putExtra(Intent.EXTRA_TEXT, texto);
+                //Intent.EXTRA_CC para enviar COPIA, Intent.EXTRA_SUBJECT para el asunto, Intent.EXTRA_TEXT texto mail
+                emailIntent.setType("message/rfc822"); //muestra lista de app
+                startActivity(Intent.createChooser(emailIntent, "Email "));
+            }
+        });
+
+
         mBtnVacunas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,12 +202,12 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
 
     }
 
-
     private void showDialogComment() {
         AlertDialog.Builder alert = new AlertDialog.Builder(ConsultarEspecialidadesActivity.this);
         alert.setTitle("Solicitar una Consulta");
         ///alert.setMessage("Selecciona Fecha:");
         final EditText editText = new EditText(ConsultarEspecialidadesActivity.this);
+        final ImageView imageView = new ImageView(ConsultarEspecialidadesActivity.this);
         editText.setHint("Ingrese: dd/mm/aaaa");
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -145,6 +224,7 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
 
         container.setLayoutParams(relativeParams);
         container.addView(editText);
+        container.addView(imageView);
 
         alert.setView(container);
 

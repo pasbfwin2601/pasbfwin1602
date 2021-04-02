@@ -3,11 +3,10 @@ package com.bit.creciendojuntos.models;
 import java.util.Map;
 
 public class FCMBody {
-
     private String to;
     private String priority;
     private String ttl;
-    private Map<String, String> data;
+    Map<String, String> data;
 
     public FCMBody(String to, String priority, String ttl, Map<String, String> data) {
         this.to = to;

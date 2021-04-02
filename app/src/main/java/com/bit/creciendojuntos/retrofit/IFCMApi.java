@@ -17,5 +17,4 @@ public interface IFCMApi {
 
     @POST("fcm/send")
     Call<FCMResponse> send(@Body FCMBody body);
-
 }

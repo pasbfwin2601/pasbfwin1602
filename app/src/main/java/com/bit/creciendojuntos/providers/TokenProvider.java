@@ -21,8 +21,8 @@ public class TokenProvider {
     }
 
 
-    public void create(String idPadre){
-
+    public void create(final String idPadre){
+        if (idPadre == null) return;
         FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
@@ -30,7 +30,10 @@ public class TokenProvider {
                 mDatabase.child(idPadre).setValue(token);
             }
         });
+    }
 
+    public DatabaseReference getToken(String idPadre){
+        return mDatabase.child(idPadre);
     }
 
 

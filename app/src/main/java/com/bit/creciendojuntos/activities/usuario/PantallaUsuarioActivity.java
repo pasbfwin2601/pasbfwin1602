@@ -20,8 +20,11 @@ import android.widget.Toast;
 import com.bit.creciendojuntos.R;
 import com.bit.creciendojuntos.activities.MainActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
+import com.bit.creciendojuntos.models.FCMBody;
+import com.bit.creciendojuntos.models.FCMResponse;
 import com.bit.creciendojuntos.models.Hijo;
 import com.bit.creciendojuntos.providers.AuthProvider;
+import com.bit.creciendojuntos.providers.NotificationProvider;
 import com.bit.creciendojuntos.providers.TokenProvider;
 import com.bit.creciendojuntos.providers.UsuarioProvider;
 import com.google.android.material.textfield.TextInputEditText;
@@ -31,6 +34,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PantallaUsuarioActivity extends AppCompatActivity {
 
@@ -51,6 +61,7 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
      String nombrePadre;
      String idPadre;
      TokenProvider mTokenProvider;
+     private NotificationProvider mNotificationProvider;
 
      boolean encontroHijos;
      long cantHijos, hijoActual;
@@ -78,6 +89,7 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
         mRootReference = FirebaseDatabase.getInstance().getReference();
         getUsuarioInfo();
         mTokenProvider = new TokenProvider();
+        mNotificationProvider = new NotificationProvider();
 
         mTextInputDocHBuscar.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
@@ -248,6 +260,43 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
 
     private void generateToken(String idPadre){
         mTokenProvider.create(idPadre);
+    }
+
+    private void sendNotification(){
+        mTokenProvider.getToken(idPadre).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String token = dataSnapshot.child("token").getValue().toString();
+                Map<String, String> map = new HashMap<>();
+                map.put("title", "SOLICITUD DE CONSULTA");
+                map.put("body","Un usuario esta solicitando una consulta");
+                FCMBody fcmBody = new FCMBody(token, "high","4500s",map);
+                mNotificationProvider.sendNotification(fcmBody).enqueue(new Callback<FCMResponse>() {
+                    @Override
+                    public void onResponse(Call<FCMResponse> call, Response<FCMResponse> response) {
+                        if (response.body() != null) {
+                            if (response.body().getSuccess() == 1){
+                                Toast.makeText(PantallaUsuarioActivity.this, "La reserva se ha ingresado correctamente", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(PantallaUsuarioActivity.this, "No se pudo ingresar la reserva", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<FCMResponse> call, Throwable t) {
+                        Log.e("Error", "Error"+t.getMessage());
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 }

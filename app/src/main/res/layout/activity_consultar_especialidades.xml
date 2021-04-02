@@ -24,12 +24,6 @@ tools:context=".activities.usuario.ConsultarEspecialidadesActivity">
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
-    @+id/txViewNombrPaciente
-
-    @+id/txViewDocumentoPaciente
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -161,16 +155,73 @@ tools:context=".activities.usuario.ConsultarEspecialidadesActivity">
             android:textColor="@color/white"
             style="?android:attr/borderlessButtonStyle"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="bottom">
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabConsulta"
+            android:id="@+id/fabLlamar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_input_add"
+            android:src="@android:drawable/stat_sys_speakerphone"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/purple_700"
+            app:fabSize="auto"
+            app:maxImageSize="40dp"
+            />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabWhatapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/purple_700"
+                android:src="@drawable/whatsapp"
+                app:fabSize="auto"
+                app:maxImageSize="40dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_dialog_email"
+                android:layout_gravity="right|bottom"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/purple_700"
+                app:fabSize="auto"
+                app:maxImageSize="40dp"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabQRCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_qr"
             android:layout_gravity="right|bottom"
             android:layout_marginBottom="20dp"
             android:backgroundTint="@color/purple_700"
             app:fabSize="auto"
-            app:maxImageSize="84dp"/>
+            app:maxImageSize="40dp"/>
+
+       <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabConsulta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cruz_blanca"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/purple_700"
+            app:fabSize="auto"
+            app:maxImageSize="84dp"/> -->
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
 

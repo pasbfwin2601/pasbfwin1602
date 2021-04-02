@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
         <activity
+            android:name=".activities.usuario.GeneradorqrActivity"
+            android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
+        <activity
             android:name=".activities.usuario.PediatraActivity"
-            android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity"/>
+            android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
         <activity
             android:name=".activities.usuario.DentistaActivity"
             android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
@@ -78,7 +83,6 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
-
     </application>
 
 </manifest>
