@@ -57,13 +57,13 @@ public class GeneradorqrActivity extends AppCompatActivity {
             }
         });
 
-      /*  mbtnLectorQR.setOnClickListener(new View.OnClickListener() {
+       mbtnLectorQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GeneradorqrActivity.this, ScannerActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
     }
 }
