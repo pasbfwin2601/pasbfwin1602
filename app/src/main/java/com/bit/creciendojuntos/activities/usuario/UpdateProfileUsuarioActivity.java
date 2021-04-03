@@ -259,7 +259,7 @@ public class UpdateProfileUsuarioActivity extends AppCompatActivity {
                             mUsuarioProvider.update(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                   // mProgressDialog.dismiss();
+                                    mProgressDialog.dismiss();
                                     Toast.makeText(UpdateProfileUsuarioActivity.this, "La informacion se actualizo correctamente", Toast.LENGTH_SHORT).show();
                                 }
                             });
