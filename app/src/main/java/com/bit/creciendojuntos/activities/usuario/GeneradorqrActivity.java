@@ -46,7 +46,7 @@ public class GeneradorqrActivity extends AppCompatActivity {
         mbtnGeneradorQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String data = mtxViewDocumentoPacienteQR.toString();
+                String data = "Paciente: "+ nombrePaciente+ "\nDocumento: " +documentoPaciente;
                 QRGEncoder  qrgEncoder = new QRGEncoder(data, null, QRGContents.Type.TEXT,500);
                 try {
                     Bitmap qrBits = qrgEncoder.encodeAsBitmap();
