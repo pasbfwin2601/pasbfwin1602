@@ -25,7 +25,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.Scanner;
 
-
+//clase para escanear codigos QR
 public class ScannerActivity extends AppCompatActivity {
 
     TextView mtxViewNombrPacienteSQR;
