@@ -62,6 +62,7 @@ public class UpdateProfileMedicoActivity extends AppCompatActivity {
     private String mNombre;
     private String mTelefono;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +91,6 @@ public class UpdateProfileMedicoActivity extends AppCompatActivity {
         mButtonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 updateProfile();
             }
         });
