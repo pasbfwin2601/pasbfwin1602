@@ -42,6 +42,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.util.Util;
 
 import java.util.Date;
 
@@ -50,6 +51,7 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
     String clavePaciente;
     String nombrePaciente;
     String documentoPaciente;
+    String fecha ="22/04/2021";
     TextView mtxViewNombrPaciente;
     TextView mTxViewDocumentoPaciente;
     Button mBtnVacunas;
@@ -105,7 +107,7 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
                     Toast.makeText(ConsultarEspecialidadesActivity.this, "No tiene permiso para realizar la llamada", Toast.LENGTH_SHORT).show();
                     ActivityCompat.requestPermissions(ConsultarEspecialidadesActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 255);
                 } else {
-                    String numero = "+59898615671";
+                    String numero = "+59892316808";
                     String inicio = "tel:"+numero;
                     Intent intent = new Intent(Intent.ACTION_CALL);
                     intent.setData(Uri.parse(inicio));
@@ -132,14 +134,8 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
         mfabWhatapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                /*Intent sendIntent = new Intent(); sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Mensaje a Whatsapp desde Android");
-                sendIntent.setType("text/plain");
-                sendIntent.setPackage("com.whatsapp");
-                startActivity(sendIntent);*/
                 String celular = "+59898615671";
-                String texto = "Mensaje a Whatsapp desde Android";
+                String texto = "Nombre: "+nombrePaciente+" ("+documentoPaciente +")\nFecha: "+fecha+"\nSolicitar Medicamentos:\nIbuprofeno, Omeoprazol";
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_VIEW);
                 String uri = "whatsapp://send?phone="+celular+"&text="+texto;
@@ -153,17 +149,16 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
             @SuppressLint("IntentReset")
             @Override
             public void onClick(View view) {
-                String email = "federicoguillermomoreiratejera@gmail.com";
-                String asunto = "Asunto del email";
-                String texto = "Texto del email";
+                String email = "laboratoriomucam@gmail.com";
+                String asunto = "Solicitud de resultados de hisopado";
+                String texto = "Datos del Paciente\nNombre: "+nombrePaciente+ "\nDocumento: "+documentoPaciente +"\nFecha:"+fecha;
                 Intent emailIntent = new Intent((Intent.ACTION_SEND));
-                emailIntent.setData(Uri.parse("mailto:"));
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, email);
+                emailIntent.setData(Uri.fromParts("mailto",email,null));
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {email});
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, asunto);
                 emailIntent.putExtra(Intent.EXTRA_TEXT, texto);
-                //Intent.EXTRA_CC para enviar COPIA, Intent.EXTRA_SUBJECT para el asunto, Intent.EXTRA_TEXT texto mail
-                emailIntent.setType("message/rfc822"); //muestra lista de app
-                startActivity(Intent.createChooser(emailIntent, "Email "));
+                emailIntent.setType("message/rfc822");
+                startActivity(Intent.createChooser(emailIntent, "Enviar Correo"));
             }
         });
 

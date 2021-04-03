@@ -16,6 +16,7 @@
     <string name="pfechaDesde">PFecha vacuna:</string>
     <string name="pproximaDosis">PProxima dosis:</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="enviar_mail">pepe</string>
 
 
 </resources>
