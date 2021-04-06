@@ -72,12 +72,52 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="20dp"
-            android:gravity="bottom"
-            android:orientation="vertical"/>
+            android:layout_height="110dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="bottom">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabInstagram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ico_instagram"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="100dp"
+                android:backgroundTint="@color/white"
+                app:fabSize="auto"
+                app:maxImageSize="40dp"
+                />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabTwitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icon_twitter"
+                app:fabSize="auto"
+                app:maxImageSize="40dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ico_face"
+                android:layout_gravity="right|bottom"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/white"
+                app:fabSize="auto"
+                app:maxImageSize="40dp"/>
 
 
+
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

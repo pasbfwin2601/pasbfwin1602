@@ -28,7 +28,7 @@ import java.util.Scanner;
 //clase para escanear codigos QR
 public class ScannerActivity extends AppCompatActivity {
 
-    Button mbtnScannerQR;
+ //   Button mbtnScannerQR;
     String nombrePaciente;
     String documentoPaciente;
     CodeScanner codeScanner;
@@ -38,8 +38,8 @@ public class ScannerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
-        MyToolbar.show(this,"Lector de Codigo QR del Paciente",false);
-        mbtnScannerQR = findViewById(R.id.btnScannerQR);
+        MyToolbar.show(this,"Lector de Codigo QR del Paciente",true);
+//        mbtnScannerQR = findViewById(R.id.btnScannerQR);
         nombrePaciente = PantallaUsuarioActivity.devolverNombre();
         documentoPaciente = PantallaUsuarioActivity.devolverDocumento();
         scannView = findViewById(R.id.scannerView);
@@ -64,13 +64,6 @@ public class ScannerActivity extends AppCompatActivity {
                 codeScanner.startPreview();
             }
         });
-
-       /* mbtnScannerQR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
 
     }
 

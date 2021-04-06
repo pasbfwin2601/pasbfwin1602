@@ -17,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
+        <!--android:theme="@style/AppTheme"-->
 
         <provider
             android:authorities="com.bit.creciendojuntos"
@@ -29,7 +30,9 @@
                 android:resource="@xml/file_paths" />
 
         </provider>
-        <activity android:name=".activities.usuario.ScannerActivity"></activity>
+        <activity
+            android:name=".activities.usuario.ScannerActivity"
+            android:parentActivityName=".activities.medico.PantallaMedicoActivity"/>
         <activity
             android:name=".activities.usuario.GeneradorqrActivity"
             android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />

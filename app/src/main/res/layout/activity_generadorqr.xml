@@ -83,37 +83,10 @@ tools:context=".activities.usuario.GeneradorqrActivity">
             android:layout_height="350dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="100dp"/>
 
-        <Button
-            android:id="@+id/btnGeneradorQR"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/color_blue_button"
-            android:text="Generar QR"
-            android:textSize="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="15dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            style="?android:attr/borderlessButtonStyle"/>
 
-        <Button
-            android:id="@+id/btnLectorQR"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/color_blue_button"
-            android:text="Lector QR"
-            android:textSize="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="15dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 </LinearLayout>
 

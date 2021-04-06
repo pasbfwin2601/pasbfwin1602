@@ -68,24 +68,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/scannerView"
                 app:layout_constraintVertical_bias="0.89"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"/>
 
 
-            <Button
-                android:id="@+id/btnScannerQR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/color_blue_button"
-                android:text="Lector QR"
-                android:textSize="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginBottom="30dp"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                style="?android:attr/borderlessButtonStyle"/>
+
         </LinearLayout>
     </LinearLayout>
 

@@ -11,8 +11,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bit.creciendojuntos.R;
+import com.bit.creciendojuntos.activities.usuario.GeneradorqrActivity;
 import com.bit.creciendojuntos.activities.usuario.InfoUsuarioActivity;
 import com.bit.creciendojuntos.activities.MainActivity;
+import com.bit.creciendojuntos.activities.usuario.ScannerActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.providers.AuthProvider;
 import com.bit.creciendojuntos.providers.MedicoProvider;
@@ -25,10 +27,12 @@ import com.google.firebase.database.ValueEventListener;
 public class PantallaMedicoActivity extends AppCompatActivity {
 
     Button mButtonLogoutM;
+    Button mbtnLectorQRM;
     AuthProvider mAuthProvider;
     TokenProvider mTokenProvider;
     MedicoProvider mMedicoProvider;
     String idMedico;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class PantallaMedicoActivity extends AppCompatActivity {
 
         // Boton para salir de la sesion de medico
         mButtonLogoutM = (Button) findViewById(R.id.btnLogoutM);
+        mbtnLectorQRM = findViewById(R.id.btnLectorQRM);
         mAuthProvider = new AuthProvider();
         mMedicoProvider = new MedicoProvider();
         getMedicoInfo();
@@ -49,6 +54,14 @@ public class PantallaMedicoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 logout();
+            }
+        });
+
+        mbtnLectorQRM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PantallaMedicoActivity.this, ScannerActivity.class);
+                startActivity(intent);
             }
         });
 
