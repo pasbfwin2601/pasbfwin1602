@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bit.creciendojuntos">
 
-    <uses-feature android:name="android.hardware.camera2"
+    <uses-feature
+        android:name="android.hardware.camera2"
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,22 +18,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CreciendoJuntos">
-        <!--android:theme="@style/AppTheme"-->
+
 
         <provider
-            android:authorities="com.bit.creciendojuntos"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.bit.creciendojuntos"
             android:exported="false"
             android:grantUriPermissions="true">
-
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-
         </provider>
+
         <activity
             android:name=".activities.usuario.ScannerActivity"
-            android:parentActivityName=".activities.medico.PantallaMedicoActivity"/>
+            android:parentActivityName=".activities.medico.PantallaMedicoActivity" />
         <activity
             android:name=".activities.usuario.GeneradorqrActivity"
             android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
@@ -83,7 +83,8 @@
         <activity
             android:name=".activities.SelectOptionAuthActivity"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

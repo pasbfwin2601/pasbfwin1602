@@ -17,5 +17,9 @@
     <string name="pproximaDosis">PProxima dosis:</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="enviar_mail">pepe</string>
+    <string name="title_activity_splash">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
 
 </resources>
