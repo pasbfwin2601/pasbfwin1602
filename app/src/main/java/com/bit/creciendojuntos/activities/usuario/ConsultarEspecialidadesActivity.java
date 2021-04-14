@@ -267,17 +267,13 @@ public class ConsultarEspecialidadesActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_vacunas, menu);
+        getMenuInflater().inflate(R.menu.menu_especialidades, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.esquema_vacuna) {
-            Intent intent = new Intent(ConsultarEspecialidadesActivity.this, EsquemaVacunacionActivity.class);
-            startActivity(intent);
-        }
 
         if (item.getItemId() == R.id.action_logout) {
             logout();

@@ -17,7 +17,6 @@ import java.util.TimerTask;
 
 public class SplashActivity extends Activity {
 
-    private final int DURACION_SPLASH = 3000;
     private Timer timer;
     private ProgressBar progressBar;
     private int i = 0;

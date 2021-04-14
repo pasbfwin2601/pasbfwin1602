@@ -7,13 +7,17 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bit.creciendojuntos.R;
+import com.bit.creciendojuntos.activities.MainActivity;
 import com.bit.creciendojuntos.includes.MyToolbar;
 import com.bit.creciendojuntos.models.Vacuna;
 import com.bit.creciendojuntos.providers.AuthProvider;
@@ -98,5 +102,32 @@ public class VacunasActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_vacunas, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.esquema_vacuna) {
+            Intent intent = new Intent(VacunasActivity.this, EsquemaVacunacionActivity.class);
+            startActivity(intent);
+        }
+
+        if (item.getItemId() == R.id.action_logout) {
+            logout();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    void logout(){
+        mAuthProvider.logout();
+        Intent intent = new Intent( VacunasActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

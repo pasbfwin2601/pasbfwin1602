@@ -50,7 +50,7 @@
             android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
         <activity
             android:name=".activities.usuario.EsquemaVacunacionActivity"
-            android:parentActivityName=".activities.usuario.ConsultarEspecialidadesActivity" />
+            android:parentActivityName=".activities.usuario.VacunasActivity" />
         <activity
             android:name=".activities.usuario.ConsultarEspecialidadesActivity"
             android:parentActivityName=".activities.usuario.PantallaUsuarioActivity" />

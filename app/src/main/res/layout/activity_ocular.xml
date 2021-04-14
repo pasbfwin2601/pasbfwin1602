@@ -114,22 +114,6 @@ tools:context=".activities.usuario.OcularActivity">
         android:layout_marginBottom="5dp"
         android:gravity="bottom">
 
-
-        <Button
-            android:id="@+id/btnOculares"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/color_blue_button"
-            android:text="Aqui visitas oculares"
-            android:textSize="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="5dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 </LinearLayout>
 
