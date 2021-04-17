@@ -147,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                         else {
-                              Toast.makeText(LoginActivity.this, "La contraseña o el password son incorrectos", Toast.LENGTH_SHORT).show();
+                              Toast.makeText(LoginActivity.this, "La contraseña o el email son incorrectos", Toast.LENGTH_SHORT).show();
                         }
                         mDialog.dismiss();
                     }
