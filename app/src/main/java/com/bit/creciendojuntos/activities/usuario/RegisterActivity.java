@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        MyToolbar.show(this,"Registrar",true);
+        MyToolbar.show(this,"Registrar Usuario",true);
 
         UsuarioDAO.getInstance().subirFotoDefecto();
 

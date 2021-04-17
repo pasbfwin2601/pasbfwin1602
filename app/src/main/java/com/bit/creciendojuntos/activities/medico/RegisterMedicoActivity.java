@@ -54,7 +54,7 @@ public class RegisterMedicoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_medico);
-        MyToolbar.show(this,"Registrar de Médico",true);
+        MyToolbar.show(this,"Registrar Médico",true);
 
         MedicoDAO.getInstance().subirFotoDefecto();
 
