@@ -204,25 +204,29 @@ public class PantallaUsuarioActivity extends AppCompatActivity {
                             hijoMio.setClaveH(snapshot.getKey());
                             claveHijo = hijoMio.getClaveH();
                             nombreHijo = hijoMio.getNombreH();
-                            documentoHijo = hijoMio.getDocumentoH();
-                            documentoPadre = hijoMio.getDocumentoP();
+                            String documentoHijoActual = hijoMio.getDocumentoH();
+                            String documentoPadreActual = hijoMio.getDocumentoP();
 
-                            if (documentoHijo.equals(docuH) && documentoPadre.equals(docuP)) {
-                            //if (documentoP.equals(docuP)) {
+                            if (documentoHijoActual.equals(docuH) && documentoPadreActual.equals(docuP)) {
+
                                 mTxViewNombreHijo.setText(nombreHijo);
-                                mTxViewDocumentoHijo.setText(documentoHijo);
-                                mTxViewDocumentoPadre.setText(documentoPadre);
+                                mTxViewDocumentoHijo.setText(documentoHijoActual);
+                                mTxViewDocumentoPadre.setText(documentoPadreActual);
                                 encontroHijos = true;
                                 mBtnConsultarEspecialidades.setVisibility(View.VISIBLE);
                                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                                 imm.hideSoftInputFromWindow(mBtnConsultarEspecialidades.getWindowToken(), 0);
+                            } else {
 
-
+                                Toast.makeText(PantallaUsuarioActivity.this, "Documento no encontrado",Toast.LENGTH_SHORT).show();
+                                mTxViewNombreHijo.setText("");
+                                mTxViewDocumentoHijo.setText("");
                             }
+
 
                             if (hijoActual == cantHijos){
                                 if (!encontroHijos){
-                                    Toast.makeText(PantallaUsuarioActivity.this, "Documento no encontrado",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(PantallaUsuarioActivity.this, "Documento no encontrado",Toast.LENGTH_SHORT).show();
                                     mTxViewNombreHijo.setText("");
                                     mTxViewDocumentoHijo.setText("");
                                 }

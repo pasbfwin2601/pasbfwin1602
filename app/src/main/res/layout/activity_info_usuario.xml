@@ -42,7 +42,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:singleLine="false"
-                android:text="CreciendoJuntos es  una aplicación movil\npensada con  un  fin social y desarrollada\npara cubrir diversas necesidades que hoy\ndia existen en el sistema de salud, ya que\nlos registros  actualmente no incluyen  el carnet de salud digital para niñas y niños.\n\nEste carnet  incluye información desde el\nnacimiento del niño hasta los 12 años de\nedad, siendo este documento obligatorio para la inscripción en nuestro sistema de\neducación,  realizar  deportes y  registrar los controles médicos.">
+                android:text="CreciendoJuntos es  una aplicación movil\npensada con  un  fin social y desarrollada\npara cubrir diversas necesidades que hoy\ndia existen en el sistema de salud, ya que\nlos registros  actualmente no incluyen  el carnet de salud digital para niñas y niños.\n\nEste carnet  incluye información desde el\nnacimiento del niño hasta los 15 años de\nedad, siendo este documento obligatorio para la inscripción en nuestro sistema de\neducación,  realizar  deportes y  registrar los controles médicos.">
             </TextView>
 
         </LinearLayout>

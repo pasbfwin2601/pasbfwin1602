@@ -38,18 +38,6 @@ tools:context=".activities.usuario.ConsultarEspecialidadesActivity">
                 android:orientation="horizontal"
                 android:layout_gravity="center">
 
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="20sp"
-                    android:text="Paciente: "
-                    android:textStyle="bold"
-                    android:layout_marginEnd="4dp">
-                </TextView>
-
                 <TextView
                     android:id="@+id/txViewNombrPaciente"
                     android:layout_width="wrap_content"
